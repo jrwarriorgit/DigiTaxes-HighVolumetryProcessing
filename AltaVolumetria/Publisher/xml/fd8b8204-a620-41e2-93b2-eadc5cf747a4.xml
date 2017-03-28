@@ -1,0 +1,25 @@
+﻿<cfdi:Comprobante xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv32.xsd " version="3.2" serie="FA" folio="008901" fecha="2017-01-13T10:41:53" sello="syYLNHPrr64GhMwi4F9S9NOudnD/u8VNkhVT/WhhrCAuD1NTA6edLHEfqDRCdxHFD1bXvDBZNLrqDfJ2BUlKdagIetg6Etfv+o4ccsYK09yyPAaC1zqcz1A9adTtOTMhJa4rDCBcJJMC6JuQKJKRQCQIrR3I8vvwoJ2azvczpoHdZFf5bHOhntSVNgHt3NnlYI0GTTAfsIhD1h60mh+25LJYypxrU1SOzolbTnBpoE4x3+ZdUiq0vdNGpZaYfClww/+fB/DqKjeyPbQrq4Lz486cs3iy5DWX4v9E8GtrDXx4o3LlO7MJI2s6rZ4+vSN62VRlg0krCnz98qDWBU0/WQ==" formaDePago="PAGO EN UNA SOLA EXHIBICION" noCertificado="20001000000300005692" certificado="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" subTotal="550.00" Moneda="MXN" total="638.00" tipoDeComprobante="ingreso" metodoDePago="03" LugarExpedicion="MEXICO" NumCtaPago="1534" xmlns:cfdi="http://www.sat.gob.mx/cfd/3">
+  <cfdi:Emisor rfc="ACO560518KW7" nombre="CECOBAN S.A DE C.V.">
+    <cfdi:DomicilioFiscal calle="CONSTITUYENTES" noExterior="119" colonia="SAN MIGUEL CHAPULTEPEC" municipio="MIGUEL HIDALGO" estado="DISTRITO FEDERAL" pais="MEXICO" codigoPostal="11850" />
+    <cfdi:RegimenFiscal Regimen="Régimen General de Ley Personas Morales" />
+  </cfdi:Emisor>
+  <cfdi:Receptor rfc="AAS9207314T7" nombre="AFIANZADORA ASERTA  S.A. DE CV.  GRUPO FINANCIERO ASERTA">
+    <cfdi:Domicilio calle="PERIFERICO SUR" noExterior="4829" noInterior="P 9" colonia="PARQUES DEL PEDREGAL" municipio="TLALPAN" estado="DISTRITO FEDERAL" pais="MEXICO" codigoPostal="14010" />
+  </cfdi:Receptor>
+  <cfdi:Conceptos>
+    <cfdi:Concepto cantidad="1.00" unidad="No Aplica" descripcion="SERVICIOS ADICIONALES AC SE" valorUnitario="550.00" importe="550.00" />
+  </cfdi:Conceptos>
+  <cfdi:Impuestos>
+    <cfdi:Retenciones>
+      <cfdi:Retencion impuesto="IVA" importe="0.00" />
+      <cfdi:Retencion impuesto="ISR" importe="0.00" />
+    </cfdi:Retenciones>
+    <cfdi:Traslados>
+      <cfdi:Traslado impuesto="IVA" tasa="16.00" importe="88.00" />
+      <cfdi:Traslado impuesto="IEPS" tasa="0" importe="0.00" />
+    </cfdi:Traslados>
+  </cfdi:Impuestos>
+  <cfdi:Complemento>
+    <tfd:TimbreFiscalDigital xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sat.gob.mx/TimbreFiscalDigital http://www.sat.gob.mx/TimbreFiscalDigital/TimbreFiscalDigital.xsd" version="1.0" UUID="FD8B8204-A620-41E2-93B2-EADC5CF747A4" FechaTimbrado="2017-01-13T10:55:01" selloCFD="syYLNHPrr64GhMwi4F9S9NOudnD/u8VNkhVT/WhhrCAuD1NTA6edLHEfqDRCdxHFD1bXvDBZNLrqDfJ2BUlKdagIetg6Etfv+o4ccsYK09yyPAaC1zqcz1A9adTtOTMhJa4rDCBcJJMC6JuQKJKRQCQIrR3I8vvwoJ2azvczpoHdZFf5bHOhntSVNgHt3NnlYI0GTTAfsIhD1h60mh+25LJYypxrU1SOzolbTnBpoE4x3+ZdUiq0vdNGpZaYfClww/+fB/DqKjeyPbQrq4Lz486cs3iy5DWX4v9E8GtrDXx4o3LlO7MJI2s6rZ4+vSN62VRlg0krCnz98qDWBU0/WQ==" noCertificadoSAT="20001000000100005761" selloSAT="I7yQaGfldLcE57A7x0/hmVea+M9ZhiTU4Ohw2lQCbW8d0Wxz9nPMrS+W/6JIqQGM2hOdAk0d6fl9DzdOJ+wQxJT+V+FDrxeNJXfPuPkNvzNqI3z+qzOdccIqfkosEfMIuYMsLAjAfFfKJ1C3XKhgBYzuRn4HMklNQAEChmj02sg=" xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital" />
+  </cfdi:Complemento>
+</cfdi:Comprobante>

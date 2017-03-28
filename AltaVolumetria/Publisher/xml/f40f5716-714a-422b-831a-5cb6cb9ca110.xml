@@ -1,0 +1,38 @@
+﻿<cfdi:Comprobante xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nomina12="http://www.sat.gob.mx/nomina12" xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv32.xsd  http://www.sat.gob.mx/nomina http://www.sat.gob.mx/sitio_internet/cfd/nomina/nomina12.xsd" version="3.2" serie="A" folio="0004464" fecha="2017-01-09T08:50:39" sello="m8NdAlPUicPD6pMCQBCtC9icqRsNhMbKl4Pb9K016n4LPGKTW6ZGpOUY42PqTg7xHBJ55/wo+RakApYjTMUo6hgt0oPmI9teZM861FrlnhN+8Dpc4c0CZwuNdiieJUiuwR+AePSG86B/MUGc+msV8X2KIgURfUX5GMzGHFH22pITr9pptOcJSNgaO5nZwDi0M5FFaNdc4odnOUeYz4Iu1q1lz8EtEQgy2p/32bc5ORiXX9ERIQj7XDXDnhOnCD6KOVpGKeXd8pHpDNCF7RtkDfSr6MsOP/ZfXuh1DTYtmfJuF7gUa3caZlRz/VRJ5m5WkYPSl/U34W/6n7jz0lgZLg==" formaDePago="En una sola exhibición" noCertificado="20001000000300005692" certificado="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" subTotal="3084.46" descuento="51.36" TipoCambio="1" Moneda="MXN" total="2809.68" tipoDeComprobante="egreso" metodoDePago="NA" LugarExpedicion="44190" xmlns:cfdi="http://www.sat.gob.mx/cfd/3">
+  <cfdi:Emisor rfc="ACO560518KW7" nombre="Empresa Demos 004">
+    <cfdi:RegimenFiscal Regimen="Regimen General de Personas Morales" />
+  </cfdi:Emisor>
+  <cfdi:Receptor rfc="CACR780123R52" nombre="CORTEZ GARCIA ROSA ASTRID GUADALUPE"></cfdi:Receptor>
+  <cfdi:Conceptos>
+    <cfdi:Concepto cantidad="1" unidad="ACT" descripcion="Pago de nómina" valorUnitario="3084.46" importe="3084.46" />
+  </cfdi:Conceptos>
+  <cfdi:Impuestos>
+    <cfdi:Retenciones>
+      <cfdi:Retencion impuesto="IVA" importe="0.00" />
+      <cfdi:Retencion impuesto="ISR" importe="223.42" />
+    </cfdi:Retenciones>
+    <cfdi:Traslados>
+      <cfdi:Traslado impuesto="IVA" tasa="0.00" importe="0" />
+    </cfdi:Traslados>
+  </cfdi:Impuestos>
+  <cfdi:Complemento>
+    <nomina12:Nomina Version="1.2" TipoNomina="O" FechaPago="2017-01-07" FechaInicialPago="2017-01-01" FechaFinalPago="2017-01-07" NumDiasPagados="7.000" TotalPercepciones="3084.46" TotalDeducciones="274.78" TotalOtrosPagos="0.00">
+      <nomina12:Emisor RegistroPatronal="R1265736105" RfcPatronOrigen="EDM041213FEA" />
+      <nomina12:Receptor Curp="CACR780123MNTRRS04" NumSeguridadSocial="55957806965" FechaInicioRelLaboral="2011-11-16" Antigüedad="P268W" TipoContrato="01" Sindicalizado="No" TipoJornada="01" TipoRegimen="10" NumEmpleado="0004464" Departamento="TELCEL" Puesto="SUPERVISOR IP" RiesgoPuesto="1" PeriodicidadPago="02" Banco="002" CuentaBancaria="5256788074104290" SalarioBaseCotApor="296.02" SalarioDiarioIntegrado="240.61" ClaveEntFed="JAL" />
+      <nomina12:Percepciones TotalSueldos="3084.46" TotalSeparacionIndemnizacion="0.00" TotalJubilacionPensionRetiro="0.00" TotalGravado="1000.00" TotalExento="2084.46">
+        <nomina12:Percepcion TipoPercepcion="001" Clave="P0001" Concepto="SUELDO" ImporteGravado="1603.00" ImporteExento="0.00" />
+        <nomina12:Percepcion TipoPercepcion="010" Clave="P0007" Concepto="PREMIO DE PUNTUALIDAD " ImporteGravado="160.30" ImporteExento="0.00" />
+        <nomina12:Percepcion TipoPercepcion="010" Clave="P0008" Concepto="PREMIO DE ASISTENCIA" ImporteGravado="160.30" ImporteExento="0.00" />
+        <nomina12:Percepcion TipoPercepcion="029" Clave="P0009" Concepto="DESPENSA" ImporteGravado="160.86" ImporteExento="0.00" />
+        <nomina12:Percepcion TipoPercepcion="045" Clave="P0050" Concepto="Pago de Acciones" ImporteGravado="0.00" ImporteExento="1000.00">
+          <nomina12:AccionesOTitulos ValorMercado="100.00" PrecioAlOtorgarse="150.00" />
+        </nomina12:Percepcion>
+      </nomina12:Percepciones>
+      <nomina12:Deducciones TotalOtrasDeducciones="51.36" TotalImpuestosRetenidos="223.42">
+        <nomina12:Deduccion TipoDeduccion="001" Clave="D0002" Concepto="IMSS" Importe="51.36" />
+        <nomina12:Deduccion TipoDeduccion="002" Clave="D0001" Concepto="ISR RETENIDO" Importe="223.42" />
+      </nomina12:Deducciones>
+    </nomina12:Nomina>
+    <tfd:TimbreFiscalDigital xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sat.gob.mx/TimbreFiscalDigital http://www.sat.gob.mx/TimbreFiscalDigital/TimbreFiscalDigital.xsd" version="1.0" UUID="F40F5716-714A-422B-831A-5CB6CB9CA110" FechaTimbrado="2017-01-09T08:51:39" selloCFD="m8NdAlPUicPD6pMCQBCtC9icqRsNhMbKl4Pb9K016n4LPGKTW6ZGpOUY42PqTg7xHBJ55/wo+RakApYjTMUo6hgt0oPmI9teZM861FrlnhN+8Dpc4c0CZwuNdiieJUiuwR+AePSG86B/MUGc+msV8X2KIgURfUX5GMzGHFH22pITr9pptOcJSNgaO5nZwDi0M5FFaNdc4odnOUeYz4Iu1q1lz8EtEQgy2p/32bc5ORiXX9ERIQj7XDXDnhOnCD6KOVpGKeXd8pHpDNCF7RtkDfSr6MsOP/ZfXuh1DTYtmfJuF7gUa3caZlRz/VRJ5m5WkYPSl/U34W/6n7jz0lgZLg==" noCertificadoSAT="20001000000100005761" selloSAT="ISpVAlQgakSebVOYIDKpZx5oYZnwUc0juEz8QVzzFhqOvBXxOOn3M/uAG8hZaqOs//UWkBe4fJAoLQrq9UuhIW7HhCwoYxOmsQSiOQ2Mw8OyHdz6hUHCZjkKpbsXSnQOqZhOKr3DfOJBWvjVSA2N9CxnU2g6+RNcNZN8RjQF3lE=" xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital" />
+  </cfdi:Complemento>
+</cfdi:Comprobante>

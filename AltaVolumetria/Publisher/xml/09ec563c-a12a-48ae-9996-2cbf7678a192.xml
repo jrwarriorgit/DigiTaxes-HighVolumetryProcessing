@@ -1,0 +1,32 @@
+﻿<cfdi:Comprobante xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv32.xsd " version="3.2" serie="ZZZ" fecha="2017-02-17T14:21:34" sello="KC2K30eOGDG9g80oP34Hkr245khs9IumNnj3YjsDWwwqHUXxrbe0+ZeEOFrBe3ejftMeR5N9Hv6tAEdmfegklc6GVZRkYq/hGtFsPkbf4MZWvfvmUnHfrESXySmjB+HVnhQbDF1K4i4zKPlSEBeo1k+qTFDUgm2/vU7vb5loovfWsxiIf1LMEeWlmjV6NlBJX9JWPZf1ZtBkuvADwhNYVgpVVSiyDS7upZlFjqxYAA/ldkhfw4ILu0IDHhP8XLEPYBk3EycXAG7aXNEx0rlkUB5P62eZLlg4CMXMZvNsi3axp/fSDfk+H7cgliNhozNeQNbWedeGF+kG6/8ZX31JVA==" formaDePago="Pago en una sola exhibición" noCertificado="20001000000300005692" certificado="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" condicionesDePago="Condiciones de pago" subTotal="35.2" descuento="843.3" motivoDescuento="Motivo del descuento" TipoCambio="1" Moneda="MXN" total="0.4" tipoDeComprobante="ingreso" metodoDePago="Tarjeta de crédito" LugarExpedicion="MEXICO, D.F." NumCtaPago="625334647765326" FolioFiscalOrig="77864221" SerieFolioFiscalOrig="DD" FechaFolioFiscalOrig="2008-12-14T23:15:42" MontoFolioFiscalOrig="478.1" xmlns:cfdi="http://www.sat.gob.mx/cfd/3">
+  <cfdi:Emisor rfc="ACO560518KW7" nombre="HSBC FIANZAS, S.A. GRUPO FINANCIERO HSBC">
+    <cfdi:DomicilioFiscal calle="PASEO DE LA REFORMA" noExterior="347" noInterior="23" colonia="CUAUHTEMOC" localidad="LOCALIDAD" referencia="REFERENCIA" municipio="CUAUHTEMOC" estado="CIUDAD DE MÉXICO" pais="MÉXICO" codigoPostal="06500" />
+    <cfdi:RegimenFiscal Regimen="REGIMEN GENERAL DE LEY DE PERSONAS MORALES" />
+  </cfdi:Emisor>
+  <cfdi:Receptor rfc="JMIQ441011L6T" nombre="Comprador: YDBNW">
+    <cfdi:Domicilio calle="Calle: CRCMB" noExterior="463" noInterior="23" colonia="Colonia: RWHBB" localidad="Localidad: TBBCU" referencia="Referencia: IJLRZ" municipio="Municipio: IRMAE" estado="Jalisco" pais="México" codigoPostal="codigoPostal" />
+  </cfdi:Receptor>
+  <cfdi:Conceptos>
+    <cfdi:Concepto cantidad="68" unidad="Hr" noIdentificacion="612223706458487" descripcion="Descripción: kNgbX" valorUnitario="0.58" importe="68.7" />
+  </cfdi:Conceptos>
+  <cfdi:Impuestos>
+    <cfdi:Retenciones>
+      <cfdi:Retencion impuesto="IVA" importe="18.42" />
+      <cfdi:Retencion impuesto="ISR" importe="0.50" />
+    </cfdi:Retenciones>
+    <cfdi:Traslados>
+      <cfdi:Traslado impuesto="IVA" tasa="0.27" importe="9.3" />
+      <cfdi:Traslado impuesto="IEPS" tasa="0" importe="0.4" />
+    </cfdi:Traslados>
+  </cfdi:Impuestos>
+  <cfdi:Complemento>
+    <tfd:TimbreFiscalDigital xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sat.gob.mx/TimbreFiscalDigital http://www.sat.gob.mx/TimbreFiscalDigital/TimbreFiscalDigital.xsd" version="1.0" UUID="09EC563C-A12A-48AE-9996-2CBF7678A192" FechaTimbrado="2017-02-17T14:22:47" selloCFD="KC2K30eOGDG9g80oP34Hkr245khs9IumNnj3YjsDWwwqHUXxrbe0+ZeEOFrBe3ejftMeR5N9Hv6tAEdmfegklc6GVZRkYq/hGtFsPkbf4MZWvfvmUnHfrESXySmjB+HVnhQbDF1K4i4zKPlSEBeo1k+qTFDUgm2/vU7vb5loovfWsxiIf1LMEeWlmjV6NlBJX9JWPZf1ZtBkuvADwhNYVgpVVSiyDS7upZlFjqxYAA/ldkhfw4ILu0IDHhP8XLEPYBk3EycXAG7aXNEx0rlkUB5P62eZLlg4CMXMZvNsi3axp/fSDfk+H7cgliNhozNeQNbWedeGF+kG6/8ZX31JVA==" noCertificadoSAT="20001000000100005761" selloSAT="6EMcVQQaJJ4oY68hzTDmr1we9nz36LS4nRGsHqrA081qVkBQ9iToHuhKakGHK5VGEMBabBeqdf7nUTEfcrl4hRZr2RdzZFro2ccR9nfxAcc9bdHXVIT0IeNAjWdkj1QL/kIK6mTDGaZMdqmo7a0JEWd+QQvY63uKMW3oQZwGBQc=" xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital" />
+  </cfdi:Complemento>
+  <cfdi:Addenda>
+    <AdSHBCH Mail="mail@cecoban.org.mx" CIF="1234567890" NumeroDeCuenta="427306112862388390979" Clabe="131955131510176551" RFC="YMOX191813Q45" Plaza="239" Sucursal="Sucursal: UXiBt" DireccionSucursal="Dirección: HgwCX" Periodo="20030230-20041030" FechaDeCorte="25/09/2014" GAT="0.8" Producto="SHBM Corporate Class 2" Moneda="Pesos" SaldoInicial="3356746202.9" SaldoAlCorte="0.9" TotalDeComisionesCobradas="2.72" IvaSobreComisiones="3.3" SaldoMinimoRequerido="7" SaldoPromedioDiarioEnElPeriodo="71562481606.8" DiasQueComprendeElPeriodo="31" AcumuladoAnual="0.23" DiasQueComprendeElPeriodoAnual="559" ChequesGirados="0" ChequesGiradosConComision="0" ImporteDeLaComision="4.2" NumeroDeChequesDevueltos="0" PagoComisionesChequesDevueltos="0.29" OtrasComisiones="8.3" CargosObjetadosFecha="0.2">
+      <MovimientosEstadoDeCuenta>
+        <AdMov Fecha="2017-11-10" Referencia="28049691310820" Descripcion="Descripción: hzLaq" RFC="GGKK31071167W" CargosRetiros="0.7" AbonosRetiros="2.36" Saldo="8.7" />
+      </MovimientosEstadoDeCuenta>
+    </AdSHBCH>
+  </cfdi:Addenda>
+</cfdi:Comprobante>
