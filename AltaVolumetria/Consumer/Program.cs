@@ -14,7 +14,8 @@ namespace Consumer
     {
         static void Main(string[] args)
         {
-            var connectionString = "Endpoint=sb://dmservicebus.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=OHQ9AWdbOfGJ6uLiZswVQVfGw0NxE3I+v8M14fv7z8c=";
+            //var connectionString = "Endpoint=sb://dmservicebus.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=OHQ9AWdbOfGJ6uLiZswVQVfGw0NxE3I+v8M14fv7z8c=";
+            var connectionString = "Endpoint=sb://dmservicebuswrk.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=oPIxXIK4KZVszl/N6/78WZZnXX+2bsTDGI5tnok3oNw=";
             var queueName = "ToProcessQueue";
             var sqlconnectionstring = "Server=tcp:dmvolumetriadbserver.database.windows.net,1433;Initial Catalog=dmVolumetria;Persist Security Info=False;User ID=jrwarrior;Password=XQh*9^kJS&ew;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 

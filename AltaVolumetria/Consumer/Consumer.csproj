@@ -53,7 +53,9 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\dmConsumer - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\dmConsumer - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\dmConsumerSecundary - Web Deploy.pubxml" />
     <None Include="Properties\webjob-publish-settings.json" />
   </ItemGroup>
   <ItemGroup>

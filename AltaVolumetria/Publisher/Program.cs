@@ -14,7 +14,8 @@ namespace Publisher
         static string processId = Guid.NewGuid().ToString();
         static void Main(string[] args)
         {
-            var connectionString = "Endpoint=sb://dmservicebus.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=OHQ9AWdbOfGJ6uLiZswVQVfGw0NxE3I+v8M14fv7z8c=";
+            //var connectionString = "Endpoint=sb://dmservicebus.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=OHQ9AWdbOfGJ6uLiZswVQVfGw0NxE3I+v8M14fv7z8c=";
+            var connectionString = "Endpoint=sb://dmservicebuswrk.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=oPIxXIK4KZVszl/N6/78WZZnXX+2bsTDGI5tnok3oNw=";
             var queueName = "ToProcessQueue";
             var client = QueueClient.CreateFromConnectionString(connectionString, queueName);
             Console.WriteLine("[{0}] Process Started", processId);
@@ -27,7 +28,7 @@ namespace Publisher
                         {
                             Guid = Guid.NewGuid().ToString(),
                             FileName = currentFile,
-                            FileContent = File.ReadAllText(currentFile)
+                            FileContent = ""// File.ReadAllText(currentFile)
                         };
                         var message = new BrokeredMessage(file);
                         client.Send(message);
