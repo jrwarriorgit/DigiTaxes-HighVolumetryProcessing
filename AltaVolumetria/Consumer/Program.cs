@@ -2,6 +2,7 @@
 using Microsoft.ServiceBus.Messaging;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -15,45 +16,128 @@ namespace Consumer
         static void Main(string[] args)
         {
             //var connectionString = "Endpoint=sb://dmservicebus.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=OHQ9AWdbOfGJ6uLiZswVQVfGw0NxE3I+v8M14fv7z8c=";
-            var connectionString = "Endpoint=sb://dmservicebuswrk.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=oPIxXIK4KZVszl/N6/78WZZnXX+2bsTDGI5tnok3oNw=";
+            var connectionString = "Endpoint=sb://prodvolservicebus.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=k9X/1hnaxSuUe1Mpa0GIUSeemmk4K6Dj3NZ5TKAyNuA=";
             var queueName = "ToProcessQueue";
-            var sqlconnectionstring = "Server=tcp:dmvolumetriadbserver.database.windows.net,1433;Initial Catalog=dmVolumetria;Persist Security Info=False;User ID=jrwarrior;Password=XQh*9^kJS&ew;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            var sqlconnectionstring = "Server=tcp:proddbvolumetriaserver.database.windows.net,1433;Initial Catalog=prodDbVolumetria;Persist Security Info=False;User ID=jrwarrior;Password=l00MdPbig3fZ;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
             var client = QueueClient.CreateFromConnectionString(connectionString, queueName);
-            
+            var count = 0;
             do
             {
                 var files = client.ReceiveBatch(1000);
-                Console.WriteLine(files.Count());
-                Parallel.ForEach(files, (currentFile) =>
+                count = files.Count();
+                Console.WriteLine(count);
+                if (count > 0)
                 {
-                    try
+                    var dataTable = MakeTable(files);
+                    using (var cnn = new SqlConnection(sqlconnectionstring))
                     {
-                        CfdiFile file = currentFile.GetBody<CfdiFile>();
-                        using (var cnn = new SqlConnection(sqlconnectionstring))
+                        cnn.Open();
+                        using (SqlBulkCopy bulkCopy = new SqlBulkCopy(cnn))
                         {
-                            cnn.Open();
-                            using (var cmd = cnn.CreateCommand())
-                            {
-                                cmd.CommandText = "INSERT INTO [dbo].[Facturas] ([Guid],[FileName],[FileContent]) VALUES (@Guid,@FileName,@FileContent)";
-                                cmd.Parameters.AddWithValue("@Guid", file.Guid);
-                                cmd.Parameters.AddWithValue("@FileName", file.FileName);
-                                cmd.Parameters.AddWithValue("@FileContent", file.FileContent);
-                                cmd.ExecuteNonQuery();
+                            bulkCopy.DestinationTableName =
+                                "dbo.Facturas";
 
+                            try
+                            {
+                                // Write from the source to the destination.
+                                bulkCopy.WriteToServer(dataTable);
+                                client.CompleteBatch(from f in files
+                                                     select f.LockToken);
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine(ex.Message);
                             }
                         }
-
-                        currentFile.Complete();
-                    }
-                    catch( Exception ex)
-                    {
-                        currentFile.Abandon();
                     }
                 }
-                );
-                Thread.Sleep(1000);
+                //Parallel.ForEach(files, (currentFile) =>
+                //{
+                //    try
+                //    {
+                //        CfdiFile file = currentFile.GetBody<CfdiFile>();
+                //        using (var cnn = new SqlConnection(sqlconnectionstring))
+                //        {
+                //            cnn.Open();
+                //            using (var cmd = cnn.CreateCommand())
+                //            {
+                //                cmd.CommandText = "INSERT INTO [dbo].[Facturas] ([Guid],[FileName],[FileContent]) VALUES (@Guid,@FileName,@FileContent)";
+                //                cmd.Parameters.AddWithValue("@Guid", file.Guid);
+                //                cmd.Parameters.AddWithValue("@FileName", file.FileName);
+                //                cmd.Parameters.AddWithValue("@FileContent", file.FileContent);
+                //                cmd.ExecuteNonQuery();
+
+                //            }
+                //        }
+
+                //        currentFile.Complete();
+                //    }
+                //    catch( Exception ex)
+                //    {
+                //        currentFile.Abandon();
+                //    }
+                //}
+                //);
+                if (count==0)
+                    Thread.Sleep(1000);
             } while (true);
         }
+
+        private static DataTable MakeTable(IEnumerable<BrokeredMessage> messages)
+        // Create a new DataTable named NewProducts. 
+        {
+            DataTable facturasDataTable = new DataTable("Facturas");
+
+            // Add three column objects to the table. 
+            DataColumn id = new DataColumn();
+            id.DataType = System.Type.GetType("System.Int64");
+            id.ColumnName = "Id";
+            id.AutoIncrement = true;
+            facturasDataTable.Columns.Add(id);
+
+            DataColumn guid = new DataColumn();
+            guid.DataType = System.Type.GetType("System.String");
+            guid.ColumnName = "Guid";
+            facturasDataTable.Columns.Add(guid);
+
+            DataColumn fileName = new DataColumn();
+            fileName.DataType = System.Type.GetType("System.String");
+            fileName.ColumnName = "FileName";
+            facturasDataTable.Columns.Add(fileName);
+
+            DataColumn fileContent = new DataColumn();
+            fileContent.DataType = System.Type.GetType("System.String");
+            fileContent.ColumnName = "FileContent";
+            facturasDataTable.Columns.Add(fileContent);
+
+            // Create an array for DataColumn objects.
+            DataColumn[] keys = new DataColumn[1];
+            keys[0] = id;
+            facturasDataTable.PrimaryKey = keys;
+
+            // Add some new rows to the collection. 
+            foreach (var item in messages)
+            {
+                CfdiFile file = item.GetBody<CfdiFile>();
+                NewRow(facturasDataTable, file);
+            }
+
+            facturasDataTable.AcceptChanges();
+
+            // Return the new DataTable. 
+            return facturasDataTable;
+        }
+
+        private static DataRow NewRow(DataTable facturasDataTable,CfdiFile cfdiFile)
+        {
+            DataRow row = facturasDataTable.NewRow();
+            row["Guid"] = cfdiFile.Guid;
+            row["FileName"] = cfdiFile.FileName;
+            row["FileContent"] = cfdiFile.FileContent;
+            facturasDataTable.Rows.Add(row);
+            return row;
+        }
     }
+
 }
