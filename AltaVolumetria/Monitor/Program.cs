@@ -1,4 +1,5 @@
 ﻿using Domain;
+using Microsoft.ServiceBus;
 using Microsoft.ServiceBus.Messaging;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,6 @@ namespace Monitor
         static  void Main(string[] args)
         {
 
-            //var connectionString = "Endpoint=sb://dmservicebuswrk.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=oPIxXIK4KZVszl/N6/78WZZnXX+2bsTDGI5tnok3oNw=";
             var connectionString = "Endpoint=sb://prodvolservicebus.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=k9X/1hnaxSuUe1Mpa0GIUSeemmk4K6Dj3NZ5TKAyNuA=";
             var queueName = "ToProcessQueue";
             var sqlconnectionstring = "Server=tcp:proddbvolumetriaserver.database.windows.net,1433;Initial Catalog=prodDbVolumetria;Persist Security Info=False;User ID=jrwarrior;Password=l00MdPbig3fZ;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
@@ -81,11 +81,61 @@ namespace Monitor
                     new StringContent(new FacturasBi(diferentialCount).ToJson(), Encoding.UTF8, "application/json")).Result;
                 var resultProcesadas = httpClient.PostAsync("https://api.powerbi.com/beta/72f988bf-86f1-41af-91ab-2d7cd011db47/datasets/88f274fc-26d8-4841-87be-3665fdb3889c/rows?key=UZ9ukHOkM%2B9k2dkW24ZCW8h0U3un5DJ13aBLI4Sovb4VL3fw1ejZYgdv9bgonsbK88L%2BpWjihgijrB3%2FyteZeQ%3D%3D", 
                     new StringContent(new FacturasBi(diferentialSqlCount).ToJson(), Encoding.UTF8, "application/json")).Result;
+                httpClient.PostAsync(
+                    "https://api.powerbi.com/beta/72f988bf-86f1-41af-91ab-2d7cd011db47/datasets/57803735-43a3-462c-9a6e-606184190e51/rows?key=a6kWykNXbrGHPM6NphnPQfsfAblZ3zBTC0TUXkZqBAObJ1LuJKHOVWLDTCetR0x%2FuTLPeDXqSts257ZhhKmY%2Bw%3D%3D"
+                    , new StringContent(new FacturasBi(nsmgr.GetQueue("ToSignQueue").MessageCount).ToJson(), Encoding.UTF8, "application/json"));
 
             }
             new System.Threading.AutoResetEvent(false).WaitOne();
 
         }
-    }
+        
+        
 
+    }
+    public class MonitorQueue
+    {
+        bool firstAttemp = true;
+        long initialCount = 0;
+        long actualCount = 0;
+        long diferentialCount = 0;
+        NamespaceManager nsmgr;
+        HttpClient httpClient;
+        string _powerBiUrlTotalInQueue;
+        string _powerBiUrlLastExecution;
+
+        public string QueueName { get; set; }
+
+        public MonitorQueue(string queueconnectionString, string queueName, string powerBiUrlTotalInQueue, string powerBiUrlLastExecution)
+        {
+            //var client = QueueClient.CreateFromConnectionString(queueconnectionString, queueName);
+            nsmgr = NamespaceManager.CreateFromConnectionString(queueconnectionString);
+            QueueName = queueName;
+            httpClient = new HttpClient();
+            _powerBiUrlLastExecution = powerBiUrlLastExecution;
+            _powerBiUrlTotalInQueue = powerBiUrlTotalInQueue;
+        }
+        void Process(object source, ElapsedEventArgs e)
+        {
+            actualCount = nsmgr.GetQueue(QueueName).MessageCount;
+            if (!firstAttemp)
+            {
+                diferentialCount = actualCount - initialCount;
+            }
+            firstAttemp = false;
+            initialCount = actualCount;
+            
+            Console.WriteLine($"{DateTime.Now.ToLongTimeString()} - Total:{actualCount} - Dif:{diferentialCount}");
+            if (!string.IsNullOrEmpty(_powerBiUrlTotalInQueue))
+            {
+                var result = httpClient.PostAsync(_powerBiUrlTotalInQueue,
+                  new StringContent(new FacturasBi(actualCount).ToJson(), Encoding.UTF8, "application/json")).Result;
+            }
+            if (!string.IsNullOrEmpty(_powerBiUrlLastExecution))
+            {
+                var resultBis = httpClient.PostAsync(_powerBiUrlLastExecution,
+                new StringContent(new FacturasBi(diferentialCount).ToJson(), Encoding.UTF8, "application/json")).Result;
+            }
+        }
+    }
 }

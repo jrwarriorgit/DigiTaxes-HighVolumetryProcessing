@@ -24,6 +24,7 @@ namespace Publisher
             do
             {
                 var files = Directory.GetFiles(Environment.CurrentDirectory + "/xml");
+                Console.WriteLine($"Se agregan {files.Count()} archivos a procesar");
                 //List<string> fileTop = new List<string>();
                 //fileTop.Add(files.First());
                 Parallel.ForEach(files, (currentFile) =>
@@ -33,7 +34,8 @@ namespace Publisher
                         {
                             Guid = guid,
                             FileName = currentFile,
-                            FileContent = uploadAndGetStorageUri(guid,currentFile) //""// File.ReadAllText(currentFile)
+                            FileContent = uploadAndGetStorageUri(guid, currentFile),
+                            FechaCreacion = DateTime.Now
                         };
                         try
                         {
@@ -60,9 +62,7 @@ namespace Publisher
 
                 // Create the blob client.
                 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-
-
-
+                
                 // Retrieve reference to a previously created container.
                 CloudBlobContainer container = blobClient.GetContainerReference("facturas");
 

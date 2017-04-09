@@ -19,8 +19,9 @@ namespace Consumer
             var connectionString = "Endpoint=sb://prodvolservicebus.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=k9X/1hnaxSuUe1Mpa0GIUSeemmk4K6Dj3NZ5TKAyNuA=";
             var queueName = "ToProcessQueue";
             var sqlconnectionstring = "Server=tcp:proddbvolumetriaserver.database.windows.net,1433;Initial Catalog=prodDbVolumetria;Persist Security Info=False;User ID=jrwarrior;Password=l00MdPbig3fZ;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-
+            
             var client = QueueClient.CreateFromConnectionString(connectionString, queueName);
+            var toSignClient = QueueClient.CreateFromConnectionString(connectionString, "ToSignQueue");
             var count = 0;
             do
             {
@@ -29,7 +30,8 @@ namespace Consumer
                 Console.WriteLine(count);
                 if (count > 0)
                 {
-                    var dataTable = MakeTable(files);
+                    var returnvalue = MakeTable(files);
+                    var dataTable = returnvalue.Item1;
                     using (var cnn = new SqlConnection(sqlconnectionstring))
                     {
                         cnn.Open();
@@ -42,6 +44,7 @@ namespace Consumer
                             {
                                 // Write from the source to the destination.
                                 bulkCopy.WriteToServer(dataTable);
+                                toSignClient.SendBatch(returnvalue.Item2);
                                 client.CompleteBatch(from f in files
                                                      select f.LockToken);
                             }
@@ -84,11 +87,11 @@ namespace Consumer
             } while (true);
         }
 
-        private static DataTable MakeTable(IEnumerable<BrokeredMessage> messages)
+        private static Tuple<DataTable,List<BrokeredMessage>> MakeTable(IEnumerable<BrokeredMessage> messages)
         // Create a new DataTable named NewProducts. 
         {
             DataTable facturasDataTable = new DataTable("Facturas");
-
+            List<BrokeredMessage> newqueue = new List<BrokeredMessage>();
             // Add three column objects to the table. 
             DataColumn id = new DataColumn();
             id.DataType = System.Type.GetType("System.Int64");
@@ -121,12 +124,13 @@ namespace Consumer
             {
                 CfdiFile file = item.GetBody<CfdiFile>();
                 NewRow(facturasDataTable, file);
+                newqueue.Add(new BrokeredMessage(file));
             }
 
             facturasDataTable.AcceptChanges();
 
             // Return the new DataTable. 
-            return facturasDataTable;
+            return new Tuple<DataTable,List<BrokeredMessage>>( facturasDataTable,newqueue);
         }
 
         private static DataRow NewRow(DataTable facturasDataTable,CfdiFile cfdiFile)
