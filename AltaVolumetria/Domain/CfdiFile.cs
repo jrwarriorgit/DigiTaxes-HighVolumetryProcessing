@@ -37,8 +37,9 @@ namespace Domain
             Validaciones = new Dictionary<string, bool>();
         }
 
-        public Cfdi(Stream stream):base()
+        public Cfdi(Stream stream)
         {
+            Validaciones = new Dictionary<string, bool>();
             Load(stream);
             //stream.Position = 0;
             //Sha256 = Convert.ToBase64String(SHA256.Create().ComputeHash(stream));

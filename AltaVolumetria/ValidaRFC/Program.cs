@@ -21,7 +21,7 @@ namespace ValidaRFC
 
         private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
         {
-            return ConnectionMultiplexer.Connect("dmrediztest.redis.cache.windows.net:6380,password=HApXtfsDq4KWZrn0XiQk0qB9RTkv0ffn9TGyF18y7fI=,ssl=True,abortConnect=False");
+            return ConnectionMultiplexer.Connect("dmRedizTest.redis.cache.windows.net:6380,password=saGLpB+N6FF/bZFarS5UnfBK003DiTULqbofeA1NGQE=,ssl=True,abortConnect=False");
         });
 
         public static ConnectionMultiplexer Connection
