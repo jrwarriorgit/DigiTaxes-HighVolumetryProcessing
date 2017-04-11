@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -36,20 +37,23 @@ namespace ValidaRFC
         {
             var connectionString = "Endpoint=sb://prodvolservicebus.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=k9X/1hnaxSuUe1Mpa0GIUSeemmk4K6Dj3NZ5TKAyNuA=";
             var queueName = "ToSignQueue";
+
             //var sqlconnectionstring = "Server=tcp:proddbvolumetriaserver.database.windows.net,1433;Initial Catalog=prodDbVolumetria;Persist Security Info=False;User ID=jrwarrior;Password=l00MdPbig3fZ;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-            CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=dmfacturacion;AccountKey=zq6PuQhMKMb4+qaswC05TUTWFyJzTG4eAw+dgc+tJGYk+azuYmmhlwjSvg0PodFC1sw3tz1RRKHOu6DHU/IcZw==;EndpointSuffix=core.windows.net");
             // Create the blob client.
-            CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+            //CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
             // Retrieve reference to a previously created container.
-            CloudBlobContainer container = blobClient.GetContainerReference("facturas");
+            //CloudBlobContainer container = blobClient.GetContainerReference("facturas");
 
-            IDatabase cache = Connection.GetDatabase();
+            //////IDatabase cache = Connection.GetDatabase();
 
             var client = QueueClient.CreateFromConnectionString(connectionString, queueName);
+            var toSignKeyVault = QueueClient.CreateFromConnectionString(connectionString, "tosignstepkeyvault");
             var count = 0;
             do
             {
+                Stopwatch swProcess = Stopwatch.StartNew();
+
                 var files = client.ReceiveBatch(1000);
                 count = files.Count();
                 Console.WriteLine(count);
@@ -62,21 +66,22 @@ namespace ValidaRFC
                         {
                             CfdiFile file = currentFile.GetBody<CfdiFile>();
                             // Retrieve storage account from connection string.
-
-
+                            //ServicePointManager.DefaultConnectionLimit = 10000;
+                            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(file.Storage);//"DefaultEndpointsProtocol=https;AccountName=dmfacturacion;AccountKey=zq6PuQhMKMb4+qaswC05TUTWFyJzTG4eAw+dgc+tJGYk+azuYmmhlwjSvg0PodFC1sw3tz1RRKHOu6DHU/IcZw==;EndpointSuffix=core.windows.net");
                             CloudBlockBlob blob = new CloudBlockBlob(new Uri(file.FileContent), storageAccount.Credentials);//container.GetBlockBlobReference(file.FileContent);
+                            
                             var cfdi=new Cfdi();
                             //var xml=blob.DownloadText();
                             using (var stream = blob.OpenRead())
                             {
                                 cfdi = new Cfdi(stream);
                             }
-                            Stopwatch sw = Stopwatch.StartNew();
-                            cfdi.ValidaRfcEmision(cache.StringGet(cfdi.RfcEmisor));
-                            cfdi.ValidaRfcReceptor(cache.StringGet(cfdi.RfcReceptor));
-                            cfdi.ValidationTimeSpend = sw.ElapsedMilliseconds;
+                            //////Stopwatch sw = Stopwatch.StartNew();
+                            //////cfdi.ValidaRfcEmision(cache.StringGet(cfdi.RfcEmisor));
+                            //////cfdi.ValidaRfcReceptor(cache.StringGet(cfdi.RfcReceptor));
+                            //////cfdi.ValidationTimeSpend = sw.ElapsedMilliseconds;
 
-
+                            toSignKeyVault.Send(new BrokeredMessage(new Tuple<CfdiFile, Cfdi>(file, cfdi)));
 
                             currentFile.Complete();
                         }
@@ -87,6 +92,7 @@ namespace ValidaRFC
                     }
                     );
                 }
+                if (swProcess.ElapsedMilliseconds > 1000) Console.WriteLine($"-> [{count} / {swProcess.ElapsedMilliseconds/1000}] = {count / (swProcess.ElapsedMilliseconds / 1000)} x segundo");
                 if (count == 0)
                     Thread.Sleep(1000);
             } while (true);

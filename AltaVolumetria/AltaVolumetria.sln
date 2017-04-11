@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Consumer", "Consumer\Consum
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidaRFC", "ValidaRFC\ValidaRFC.csproj", "{EE269FC7-F552-4FCF-9AD8-5C0D2BA57929}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Signer", "Signer\Signer.csproj", "{0A605AEE-7C52-43A9-926C-5851F7224979}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{EE269FC7-F552-4FCF-9AD8-5C0D2BA57929}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE269FC7-F552-4FCF-9AD8-5C0D2BA57929}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE269FC7-F552-4FCF-9AD8-5C0D2BA57929}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A605AEE-7C52-43A9-926C-5851F7224979}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A605AEE-7C52-43A9-926C-5851F7224979}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A605AEE-7C52-43A9-926C-5851F7224979}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A605AEE-7C52-43A9-926C-5851F7224979}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -16,6 +16,7 @@ namespace Domain
         public string FileName { get; set; }
         public string FileContent { get; set; }
         public DateTime FechaCreacion { get; set; }
+        public string Storage { get; set; }
     }
 
     public class Cfdi
@@ -41,8 +42,8 @@ namespace Domain
         {
             Validaciones = new Dictionary<string, bool>();
             Load(stream);
-            //stream.Position = 0;
-            //Sha256 = Convert.ToBase64String(SHA256.Create().ComputeHash(stream));
+            stream.Position = 0;
+            Sha256 = Convert.ToBase64String(SHA256.Create().ComputeHash(stream));
 
 
         }

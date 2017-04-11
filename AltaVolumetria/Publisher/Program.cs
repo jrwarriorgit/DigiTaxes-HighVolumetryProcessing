@@ -8,12 +8,14 @@ using Microsoft.ServiceBus.Messaging;
 using Domain;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
+using System.Diagnostics;
 
 namespace Publisher
 {
     class Program
     {
         static string processId = Guid.NewGuid().ToString();
+
         static void Main(string[] args)
         {
             //var connectionString = "Endpoint=sb://dmservicebus.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=OHQ9AWdbOfGJ6uLiZswVQVfGw0NxE3I+v8M14fv7z8c=";
@@ -30,12 +32,14 @@ namespace Publisher
                 Parallel.ForEach(files, (currentFile) =>
                     {
                         var guid = Guid.NewGuid().ToString();
+                        var tuple=uploadAndGetStorageUri(guid, currentFile);
                         CfdiFile file = new CfdiFile()
                         {
                             Guid = guid,
                             FileName = currentFile,
-                            FileContent = uploadAndGetStorageUri(guid, currentFile),
-                            FechaCreacion = DateTime.Now
+                            FileContent = tuple.Item1,
+                            FechaCreacion = DateTime.Now,
+                            Storage= tuple.Item2
                         };
                         try
                         {
@@ -51,14 +55,31 @@ namespace Publisher
             } while (true);
         }
 
-        private static  string uploadAndGetStorageUri(string guid,string currentFile)
+        private static Tuple<string,string> uploadAndGetStorageUri(string guid,string currentFile)
         {
             string uri="";
+            string[] storages =
+                {
+                    "DefaultEndpointsProtocol=https;AccountName=dmfacturacion;AccountKey=zq6PuQhMKMb4+qaswC05TUTWFyJzTG4eAw+dgc+tJGYk+azuYmmhlwjSvg0PodFC1sw3tz1RRKHOu6DHU/IcZw==;EndpointSuffix=core.windows.net"
+                    ,"DefaultEndpointsProtocol=https;AccountName=dmfacturacion02;AccountKey=WIxu9f5GC4aBU2+HdKa3n67fgnwG4N/+c49WPDlkbusBhIsHBotSntm3IfX0kGOOyxIha02RV7xIBZDf8kvvVA==;EndpointSuffix=core.windows.net"
+                    ,"DefaultEndpointsProtocol=https;AccountName=dmfacturacion03;AccountKey=aQYvhrsGeV70qqqgzo8+H9oDcv8erThSUjgY/MoXc9K9rWF5fsWoktqWo2VScdwcph3fxfbtMyJTESds0McgdQ==;EndpointSuffix=core.windows.net"
+                    ,"DefaultEndpointsProtocol=https;AccountName=dmfacturacion04;AccountKey=YXZhLIQQbx3AR6WU4Y7v13kBnrFBaD2VciJNZcnyOvHC96j0/x/mV9p606K97+RJ9hWfnF46n2XMU+JdygfILg==;EndpointSuffix=core.windows.net"
+                    ,"DefaultEndpointsProtocol=https;AccountName=dmfacturacion05;AccountKey=RCse6DueK1JdTfRnaFVena2wvBBBwcZcou6R812ukwal+aUbhX9zXDFfcRrqApTBxZAZbhTMOZxJ++3grCSJXA==;EndpointSuffix=core.windows.net"
+                    ,"DefaultEndpointsProtocol=https;AccountName=dmfacturacion06;AccountKey=Uk5cnOu67G5rPrUfJRPzEpiT3mRplva2AeMIWGMBiajCHflWy3z01SUkZDdYd8x2XJNYZC65600icKwbcCl5TQ==;EndpointSuffix=core.windows.net"
+                    ,"DefaultEndpointsProtocol=https;AccountName=dmfacturacion07;AccountKey=1+4tJk0FaGDodQZ/pHZuCgzbZuf5DuBT73xeIusRAEKCFFNnNhJOJeO+Y9hCaaTS2NRtrOw2qfks0E43MX596w==;EndpointSuffix=core.windows.net"
+                    ,"DefaultEndpointsProtocol=https;AccountName=dmfacturacion08;AccountKey=Xd3JCYflwuPQeHRLVD+vVkvFC0X6EIsLHrGWetQmySEqJAAN74Vspwz9JhjS88vwtjWw5WV5VKFMrrhj+wk69w==;EndpointSuffix=core.windows.net"
+                    ,"DefaultEndpointsProtocol=https;AccountName=dmfacturacion09;AccountKey=sZbHd2tXs8jfX6b2vsxC86yGOMNehSx986+Jk06k9y/WIPhc1C+ThYWUc6gDINil+fTcz8Ue2xuVQ6r2jXgZBg==;EndpointSuffix=core.windows.net"
+                    ,"DefaultEndpointsProtocol=https;AccountName=dmfacturacion10;AccountKey=V3Ex/xZ3tDwnln5z/PMpIT1oDpaSxVB8SFh3Tdu5WVjWgj1IiHEJXSmJhqyK6BsjZRkk9MMEIVKYOqEwFWJ4WA==;EndpointSuffix=core.windows.net"
+
+                };
+            var rnd = new Random(guid.GetHashCode()).Next(0, storages.Length - 1);
             // Retrieve storage account from connection string.
             try
 
             {
-                CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=dmfacturacion;AccountKey=zq6PuQhMKMb4+qaswC05TUTWFyJzTG4eAw+dgc+tJGYk+azuYmmhlwjSvg0PodFC1sw3tz1RRKHOu6DHU/IcZw==;EndpointSuffix=core.windows.net");
+                
+                
+                CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storages[rnd]);
 
                 // Create the blob client.
                 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
@@ -88,7 +109,7 @@ namespace Publisher
             {
                 Console.WriteLine(ex.ToString());
             }
-            return uri;
+            return new Tuple<string, string>(uri,storages[rnd]);
         }
     }
 }
