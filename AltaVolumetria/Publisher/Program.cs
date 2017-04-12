@@ -9,6 +9,7 @@ using Domain;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 using System.Diagnostics;
+using Microsoft.WindowsAzure.Storage.Table;
 
 namespace Publisher
 {
@@ -72,7 +73,7 @@ namespace Publisher
                     ,"DefaultEndpointsProtocol=https;AccountName=dmfacturacion10;AccountKey=V3Ex/xZ3tDwnln5z/PMpIT1oDpaSxVB8SFh3Tdu5WVjWgj1IiHEJXSmJhqyK6BsjZRkk9MMEIVKYOqEwFWJ4WA==;EndpointSuffix=core.windows.net"
 
                 };
-            var rnd = new Random(guid.GetHashCode()).Next(0, storages.Length - 1);
+            var rnd = 0;// new Random(guid.GetHashCode()).Next(0, storages.Length - 1);
             // Retrieve storage account from connection string.
             try
 
@@ -82,28 +83,50 @@ namespace Publisher
                 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storages[rnd]);
 
                 // Create the blob client.
-                CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+                //CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
                 
                 // Retrieve reference to a previously created container.
-                CloudBlobContainer container = blobClient.GetContainerReference("facturas");
+                //CloudBlobContainer container = blobClient.GetContainerReference("facturas");
 
-                if (!container.Exists())
-                    container.CreateIfNotExists();
+                //if (!container.Exists())
+                //    container.CreateIfNotExists();
                 //container.CreateIfNotExists();
                
 
                 // Retrieve reference to a blob named "myblob".
                 var fileName = Path.GetFileName(currentFile);
 
-                CloudBlockBlob blockBlob = container.GetBlockBlobReference($"{DateTime.Now.ToString("yyyy-MM-dd/HH-mm/ss")}/{guid}--{fileName}");
+                //CloudBlockBlob blockBlob = container.GetBlockBlobReference($"{DateTime.Now.ToString("yyyy-MM-dd/HH-mm/ss")}/{guid}--{fileName}");
 
-                blockBlob.UploadFromFile(currentFile);
+                //blockBlob.UploadFromFile(currentFile);
                 //// Create or overwrite the "myblob" blob with contents from a local file.
                 //using (var fileStream = System.IO.File.OpenRead(@"path\myfile"))
                 //{
                 //    blockBlob.UploadFromStream(fileStream);
                 //}
-                uri = blockBlob.Uri.AbsoluteUri;
+                //uri = blockBlob.Uri.AbsoluteUri;
+
+
+                //////////////////
+                // Retrieve the storage account from the connection string.
+                
+                // Create the table client.
+                CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+
+                // Create the CloudTable object that represents the "people" table.
+                CloudTable table = tableClient.GetTableReference("cfdi");
+
+                table.CreateIfNotExists();
+                // Create the TableOperation object that inserts the customer entity.
+                TableOperation insertOperation = TableOperation.Insert(new CfdiEntity(guid, File.ReadAllText(currentFile)));
+
+                // Execute the insert operation.
+                table.Execute(insertOperation);
+
+
+
+
+
             }
             catch (Exception ex)
             {

@@ -2,6 +2,7 @@
 using Microsoft.ServiceBus.Messaging;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
+using Microsoft.WindowsAzure.Storage.Table;
 using StackExchange.Redis;
 using System;
 using System.Collections.Generic;
@@ -68,16 +69,50 @@ namespace ValidaRFC
                             // Retrieve storage account from connection string.
                             //ServicePointManager.DefaultConnectionLimit = 10000;
                             CloudStorageAccount storageAccount = CloudStorageAccount.Parse(file.Storage);//"DefaultEndpointsProtocol=https;AccountName=dmfacturacion;AccountKey=zq6PuQhMKMb4+qaswC05TUTWFyJzTG4eAw+dgc+tJGYk+azuYmmhlwjSvg0PodFC1sw3tz1RRKHOu6DHU/IcZw==;EndpointSuffix=core.windows.net");
-                            CloudBlockBlob blob = new CloudBlockBlob(new Uri(file.FileContent), storageAccount.Credentials);//container.GetBlockBlobReference(file.FileContent);
-                            //var requestOptions = new BlobRequestOptions();
-                            //requestOptions.ParallelOperationThreadCount = 1000;
-                            var cfdi=new Cfdi();
-                            //var xml=blob.DownloadText();
+                            //CloudBlockBlob blob = new CloudBlockBlob(new Uri(file.FileContent), storageAccount.Credentials);//container.GetBlockBlobReference(file.FileContent);
+
+                            ////////////////
+
+                            // Retrieve the storage account from the connection string.
                             
-                            using (var stream = blob.OpenRead())//null,requestOptions))
+
+                            // Create the table client.
+                            CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+
+                            // Create the CloudTable object that represents the "people" table.
+                            CloudTable table = tableClient.GetTableReference("cfdi");
+
+                            // Create a retrieve operation that takes a customer entity.
+                            TableOperation retrieveOperation = TableOperation.Retrieve<CfdiEntity>("none", file.Guid);
+
+                            // Execute the retrieve operation.
+                            TableResult retrievedResult = table.Execute(retrieveOperation);
+
+                            // Print the phone number of the result.
+                            if (retrievedResult.Result != null)
                             {
-                                cfdi = new Cfdi(stream);
-                            }
+                                var xml = ((CfdiEntity)retrievedResult.Result).Xml;
+                                byte[] byteArray = Encoding.UTF8.GetBytes(xml);
+                                MemoryStream stream = new MemoryStream(byteArray);
+
+
+
+
+
+                                ///////////////
+
+                                
+                                
+                                //var requestOptions = new BlobRequestOptions();
+                                //requestOptions.ParallelOperationThreadCount = 1000;
+                                var cfdi = new Cfdi();
+                                //var xml=blob.DownloadText();
+
+                                //using (var stream = blob.OpenRead())//null,requestOptions))
+                                //{
+                                    cfdi = new Cfdi(stream);
+                                //}
+                           
                             ////////Stream stream = new MemoryStream();
                             ////////blob.DownloadToStream(stream);
                             ////////cfdi = new Cfdi(stream);
@@ -89,8 +124,9 @@ namespace ValidaRFC
                             //////cfdi.ValidationTimeSpend = sw.ElapsedMilliseconds;
 
                             toSignKeyVault.Send(new BrokeredMessage(new Tuple<CfdiFile, Cfdi>(file, cfdi)));
-
+                           
                             currentFile.Complete();
+                            }
                         }
                         catch (Exception ex)
                         {
