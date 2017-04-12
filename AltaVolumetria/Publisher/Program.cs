@@ -83,46 +83,48 @@ namespace Publisher
                 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storages[rnd]);
 
                 // Create the blob client.
-                //CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+                CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
                 
                 // Retrieve reference to a previously created container.
-                //CloudBlobContainer container = blobClient.GetContainerReference("facturas");
+                CloudBlobContainer container = blobClient.GetContainerReference("facturas");
 
-                //if (!container.Exists())
-                //    container.CreateIfNotExists();
+                if (!container.Exists())
+                    container.CreateIfNotExists();
                 //container.CreateIfNotExists();
                
 
                 // Retrieve reference to a blob named "myblob".
                 var fileName = Path.GetFileName(currentFile);
 
-                //CloudBlockBlob blockBlob = container.GetBlockBlobReference($"{DateTime.Now.ToString("yyyy-MM-dd/HH-mm/ss")}/{guid}--{fileName}");
+                CloudBlockBlob blockBlob = container.GetBlockBlobReference($"{DateTime.Now.ToString("yyyy-MM-dd/HH-mm/ss")}/{guid}--{fileName}");
 
-                //blockBlob.UploadFromFile(currentFile);
+                blockBlob.UploadFromFile(currentFile);
                 //// Create or overwrite the "myblob" blob with contents from a local file.
                 //using (var fileStream = System.IO.File.OpenRead(@"path\myfile"))
                 //{
                 //    blockBlob.UploadFromStream(fileStream);
                 //}
-                //uri = blockBlob.Uri.AbsoluteUri;
+                uri = blockBlob.Uri.AbsoluteUri;
 
 
                 //////////////////
                 // Retrieve the storage account from the connection string.
-                
+                var enableInsertInTableStorage = false;
                 // Create the table client.
-                CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+                if (enableInsertInTableStorage)
+                {
+                    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
-                // Create the CloudTable object that represents the "people" table.
-                CloudTable table = tableClient.GetTableReference("cfdi");
+                    // Create the CloudTable object that represents the "people" table.
+                    CloudTable table = tableClient.GetTableReference("cfdi");
 
-                table.CreateIfNotExists();
-                // Create the TableOperation object that inserts the customer entity.
-                TableOperation insertOperation = TableOperation.Insert(new CfdiEntity(guid, File.ReadAllText(currentFile)));
+                    table.CreateIfNotExists();
+                    // Create the TableOperation object that inserts the customer entity.
+                    TableOperation insertOperation = TableOperation.Insert(new CfdiEntity(guid, File.ReadAllText(currentFile)));
 
-                // Execute the insert operation.
-                table.Execute(insertOperation);
-
+                    // Execute the insert operation.
+                    table.Execute(insertOperation);
+                }
 
 
 
