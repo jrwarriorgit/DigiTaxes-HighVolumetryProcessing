@@ -30,7 +30,8 @@ namespace Publisher
                 Console.WriteLine($"Se agregan {files.Count()} archivos a procesar");
                 //List<string> fileTop = new List<string>();
                 //fileTop.Add(files.First());
-                Parallel.ForEach(files, (currentFile) =>
+                //Parallel.ForEach(files, (currentFile) =>
+                var result=files.AsParallel().Select ((currentFile,index) =>
                     {
                         var guid = Guid.NewGuid().ToString();
                         var tuple=uploadAndGetStorageUri(guid, currentFile);
@@ -51,8 +52,11 @@ namespace Publisher
                         {
                             Console.WriteLine(ex);
                         }
+                        return guid;
                     }
+
                 );
+               Console.WriteLine( $"-> {result.ToList().Count} procesados");
             } while (true);
         }
 
