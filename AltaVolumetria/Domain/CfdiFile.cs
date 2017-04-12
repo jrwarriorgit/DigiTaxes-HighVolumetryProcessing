@@ -6,6 +6,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using System.Xml.Linq;
 
 namespace Domain
 {
@@ -50,29 +51,35 @@ namespace Domain
 
         private void Load(Stream stream)
         {
+            stream.Position = 0;
             using (var reader = XmlReader.Create(stream))
             {
-                while (reader.Read())
+                var elementsToFind = 3;
+                while (elementsToFind > 0 && reader.Read())
                 {
                     if (reader.IsStartElement())
                     {
+                        
                         switch (reader.Name)
                         {
 
-                            case "cfdi:Comprobante":
-                                Folio = reader["folio"];
-                                break;
+                            ////case "cfdi:Comprobante":
+                            ////    Folio = reader["folio"];
+                            ////    break;
 
                             case "cfdi:Emisor":
                                 RfcEmisor = reader["rfc"];
+                                elementsToFind--;
                                 break;
 
                             case "cfdi:Receptor":
                                 RfcReceptor = reader["rfc"];
+                                elementsToFind--;
                                 break;
 
                             case "tfd:TimbreFiscalDigital":
                                 UUID = reader["UUID"];
+                                elementsToFind--;
                                 break;
 
                         }
@@ -80,6 +87,11 @@ namespace Domain
                     }
                 }
             }
+            // XDocument xdocument = XDocument.Load(stream);
+
+
+
+
         }
 
         public void ValidaRfcReceptor(string value)

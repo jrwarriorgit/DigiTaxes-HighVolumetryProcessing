@@ -69,13 +69,20 @@ namespace ValidaRFC
                             //ServicePointManager.DefaultConnectionLimit = 10000;
                             CloudStorageAccount storageAccount = CloudStorageAccount.Parse(file.Storage);//"DefaultEndpointsProtocol=https;AccountName=dmfacturacion;AccountKey=zq6PuQhMKMb4+qaswC05TUTWFyJzTG4eAw+dgc+tJGYk+azuYmmhlwjSvg0PodFC1sw3tz1RRKHOu6DHU/IcZw==;EndpointSuffix=core.windows.net");
                             CloudBlockBlob blob = new CloudBlockBlob(new Uri(file.FileContent), storageAccount.Credentials);//container.GetBlockBlobReference(file.FileContent);
-                            
+                            //var requestOptions = new BlobRequestOptions();
+                            //requestOptions.ParallelOperationThreadCount = 1000;
                             var cfdi=new Cfdi();
                             //var xml=blob.DownloadText();
-                            using (var stream = blob.OpenRead())
+                            
+                            using (var stream = blob.OpenRead())//null,requestOptions))
                             {
                                 cfdi = new Cfdi(stream);
                             }
+                            ////////Stream stream = new MemoryStream();
+                            ////////blob.DownloadToStream(stream);
+                            ////////cfdi = new Cfdi(stream);
+
+
                             //////Stopwatch sw = Stopwatch.StartNew();
                             //////cfdi.ValidaRfcEmision(cache.StringGet(cfdi.RfcEmisor));
                             //////cfdi.ValidaRfcReceptor(cache.StringGet(cfdi.RfcReceptor));
