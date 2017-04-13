@@ -1,4 +1,5 @@
-﻿using Domain;
+﻿using Configuration;
+using Domain;
 using Microsoft.ServiceBus.Messaging;
 using System;
 using System.Collections.Generic;
@@ -15,11 +16,10 @@ namespace Consumer
     {
         static void Main(string[] args)
         {
-            //var connectionString = "Endpoint=sb://dmservicebus.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=OHQ9AWdbOfGJ6uLiZswVQVfGw0NxE3I+v8M14fv7z8c=";
-            var connectionString = "Endpoint=sb://prodvolservicebus.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=k9X/1hnaxSuUe1Mpa0GIUSeemmk4K6Dj3NZ5TKAyNuA=";
+            var connectionString = InternalConfiguration.QueueConnectionString;
             var queueName = "ToProcessQueue";
-            var sqlconnectionstring = "Server=tcp:proddbvolumetriaserver.database.windows.net,1433;Initial Catalog=prodDbVolumetria;Persist Security Info=False;User ID=jrwarrior;Password=l00MdPbig3fZ;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-            
+            var sqlconnectionstring = InternalConfiguration.SqlConnectionString;
+
             var client = QueueClient.CreateFromConnectionString(connectionString, queueName);
             var toSignClient = QueueClient.CreateFromConnectionString(connectionString, "ToSignQueue");
             var count = 0;

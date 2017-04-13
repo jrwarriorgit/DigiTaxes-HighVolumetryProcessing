@@ -10,6 +10,7 @@ using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 using System.Diagnostics;
 using Microsoft.WindowsAzure.Storage.Table;
+using Configuration;
 
 namespace Publisher
 {
@@ -19,10 +20,12 @@ namespace Publisher
 
         static void Main(string[] args)
         {
-            //var connectionString = "Endpoint=sb://dmservicebus.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=OHQ9AWdbOfGJ6uLiZswVQVfGw0NxE3I+v8M14fv7z8c=";
-            var connectionString = "Endpoint=sb://prodvolservicebus.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=k9X/1hnaxSuUe1Mpa0GIUSeemmk4K6Dj3NZ5TKAyNuA=";
+            var connectionString = InternalConfiguration.QueueConnectionString; 
             var queueName = "ToProcessQueue";
+            var storages = InternalConfiguration.Storages;
+
             var client = QueueClient.CreateFromConnectionString(connectionString, queueName);
+            
             Console.WriteLine("[{0}] Process Started", processId);
             do
             {
@@ -30,11 +33,11 @@ namespace Publisher
                 Console.WriteLine($"Se agregan {files.Count()} archivos a procesar");
                 //List<string> fileTop = new List<string>();
                 //fileTop.Add(files.First());
-                //Parallel.ForEach(files, (currentFile) =>
-                var result=files.AsParallel().Select ((currentFile,index) =>
+                Parallel.ForEach(files, (currentFile) =>
+                //var result=files.AsParallel().Select ((currentFile,index) =>
                     {
                         var guid = Guid.NewGuid().ToString();
-                        var tuple=uploadAndGetStorageUri(guid, currentFile);
+                        var tuple=uploadAndGetStorageUri(guid, currentFile, storages);
                         CfdiFile file = new CfdiFile()
                         {
                             Guid = guid,
@@ -52,45 +55,33 @@ namespace Publisher
                         {
                             Console.WriteLine(ex);
                         }
-                        return guid;
+                        //return guid;
                     }
 
                 );
-               Console.WriteLine( $"-> {result.ToList().Count} procesados");
+               //Console.WriteLine( $"-> {result.ToList().Count} procesados");
             } while (true);
         }
 
-        private static Tuple<string,string> uploadAndGetStorageUri(string guid,string currentFile)
+        private static Tuple<string,string> uploadAndGetStorageUri(string guid,string currentFile, string[] storages)
         {
             string uri="";
-            string[] storages =
-                {
-                    "DefaultEndpointsProtocol=https;AccountName=dmfacturacion;AccountKey=zq6PuQhMKMb4+qaswC05TUTWFyJzTG4eAw+dgc+tJGYk+azuYmmhlwjSvg0PodFC1sw3tz1RRKHOu6DHU/IcZw==;EndpointSuffix=core.windows.net"
-                    ,"DefaultEndpointsProtocol=https;AccountName=dmfacturacion02;AccountKey=WIxu9f5GC4aBU2+HdKa3n67fgnwG4N/+c49WPDlkbusBhIsHBotSntm3IfX0kGOOyxIha02RV7xIBZDf8kvvVA==;EndpointSuffix=core.windows.net"
-                    ,"DefaultEndpointsProtocol=https;AccountName=dmfacturacion03;AccountKey=aQYvhrsGeV70qqqgzo8+H9oDcv8erThSUjgY/MoXc9K9rWF5fsWoktqWo2VScdwcph3fxfbtMyJTESds0McgdQ==;EndpointSuffix=core.windows.net"
-                    ,"DefaultEndpointsProtocol=https;AccountName=dmfacturacion04;AccountKey=YXZhLIQQbx3AR6WU4Y7v13kBnrFBaD2VciJNZcnyOvHC96j0/x/mV9p606K97+RJ9hWfnF46n2XMU+JdygfILg==;EndpointSuffix=core.windows.net"
-                    ,"DefaultEndpointsProtocol=https;AccountName=dmfacturacion05;AccountKey=RCse6DueK1JdTfRnaFVena2wvBBBwcZcou6R812ukwal+aUbhX9zXDFfcRrqApTBxZAZbhTMOZxJ++3grCSJXA==;EndpointSuffix=core.windows.net"
-                    ,"DefaultEndpointsProtocol=https;AccountName=dmfacturacion06;AccountKey=Uk5cnOu67G5rPrUfJRPzEpiT3mRplva2AeMIWGMBiajCHflWy3z01SUkZDdYd8x2XJNYZC65600icKwbcCl5TQ==;EndpointSuffix=core.windows.net"
-                    ,"DefaultEndpointsProtocol=https;AccountName=dmfacturacion07;AccountKey=1+4tJk0FaGDodQZ/pHZuCgzbZuf5DuBT73xeIusRAEKCFFNnNhJOJeO+Y9hCaaTS2NRtrOw2qfks0E43MX596w==;EndpointSuffix=core.windows.net"
-                    ,"DefaultEndpointsProtocol=https;AccountName=dmfacturacion08;AccountKey=Xd3JCYflwuPQeHRLVD+vVkvFC0X6EIsLHrGWetQmySEqJAAN74Vspwz9JhjS88vwtjWw5WV5VKFMrrhj+wk69w==;EndpointSuffix=core.windows.net"
-                    ,"DefaultEndpointsProtocol=https;AccountName=dmfacturacion09;AccountKey=sZbHd2tXs8jfX6b2vsxC86yGOMNehSx986+Jk06k9y/WIPhc1C+ThYWUc6gDINil+fTcz8Ue2xuVQ6r2jXgZBg==;EndpointSuffix=core.windows.net"
-                    ,"DefaultEndpointsProtocol=https;AccountName=dmfacturacion10;AccountKey=V3Ex/xZ3tDwnln5z/PMpIT1oDpaSxVB8SFh3Tdu5WVjWgj1IiHEJXSmJhqyK6BsjZRkk9MMEIVKYOqEwFWJ4WA==;EndpointSuffix=core.windows.net"
-
-                };
-            var rnd = 0;// new Random(guid.GetHashCode()).Next(0, storages.Length - 1);
+            int hashcode = guid.GetHashCode();
+            var rnd = new Random(hashcode).Next(0, storages.Length - 1);
             // Retrieve storage account from connection string.
             try
 
             {
-                
-                
+               
                 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storages[rnd]);
 
                 // Create the blob client.
                 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-                
+
                 // Retrieve reference to a previously created container.
-                CloudBlobContainer container = blobClient.GetContainerReference("facturas");
+                
+                var leftstring = $"{new Random(hashcode).Next(0,999):D3}".Substring(0,3);
+                CloudBlobContainer container = blobClient.GetContainerReference($"{leftstring}facturas");
 
                 if (!container.Exists())
                     container.CreateIfNotExists();

@@ -1,4 +1,5 @@
-﻿using Domain;
+﻿using Configuration;
+using Domain;
 using Microsoft.Azure.KeyVault;
 using Microsoft.Azure.KeyVault.WebKey;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
@@ -20,15 +21,15 @@ namespace Signer
         static KeyVaultClient keyVaultClient;
         static void Main(string[] args)
         {
-            var connectionString = "Endpoint=sb://prodvolservicebus.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=k9X/1hnaxSuUe1Mpa0GIUSeemmk4K6Dj3NZ5TKAyNuA=";
+            var connectionString = InternalConfiguration.QueueConnectionString;
             var queueName = "tosignstepkeyvault";
 
-            var keyName = "dmKeyRulo";
-            var keyVaultAddress = "https://dmkeyvaultrulo.vault.azure.net/";
-            var keyVersion = "bb4d7a3af0884f139944fe050a1907a5";
+            var keyName = "PrincipalHsmKey";
+            var keyVaultAddress = "https://prodkeyvaultforpac.vault.azure.net/";
+            var keyVersion = "f1fdd90eb24f43dc81d3d91449020205";
 
-            var applicationId = "f6644b58-0d44-411c-a290-69b71f092e99";
-            var clientSecret = "L0Z4GZrmN6bIRdGTYr13KisXDFeZC14QdK4zxVSgz58=";
+            var applicationId = "70f7abb5-667f-4d5b-8635-71cd5de50d60";
+            var clientSecret = "4gnYL5di7Kz2/gFaU1F2V73IGHm6fh/d+l6J4ZU8Wfw=";
 
             keyVaultClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(
                    (authority, resource, scope) => GetAccessToken(authority, resource, applicationId, clientSecret)),

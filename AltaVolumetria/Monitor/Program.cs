@@ -1,4 +1,5 @@
-﻿using Domain;
+﻿using Configuration;
+using Domain;
 using Microsoft.ServiceBus;
 using Microsoft.ServiceBus.Messaging;
 using System;
@@ -18,8 +19,8 @@ namespace Monitor
         static  void Main(string[] args)
         {
 
-            var connectionString = "Endpoint=sb://prodvolservicebus.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=k9X/1hnaxSuUe1Mpa0GIUSeemmk4K6Dj3NZ5TKAyNuA=";
-            var sqlconnectionstring = "Server=tcp:proddbvolumetriaserver.database.windows.net,1433;Initial Catalog=prodDbVolumetria;Persist Security Info=False;User ID=jrwarrior;Password=l00MdPbig3fZ;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            var connectionString = InternalConfiguration.QueueConnectionString;
+            var sqlconnectionstring = InternalConfiguration.SqlConnectionString;
             var listMonitorQueue = new List<Monitor>();
             listMonitorQueue.Add(new MonitorSql(sqlconnectionstring ,
                 null, "https://api.powerbi.com/beta/72f988bf-86f1-41af-91ab-2d7cd011db47/datasets/88f274fc-26d8-4841-87be-3665fdb3889c/rows?key=UZ9ukHOkM%2B9k2dkW24ZCW8h0U3un5DJ13aBLI4Sovb4VL3fw1ejZYgdv9bgonsbK88L%2BpWjihgijrB3%2FyteZeQ%3D%3D"));
