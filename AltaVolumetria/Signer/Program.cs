@@ -36,7 +36,7 @@ namespace Signer
                    new HttpClient());
 
             var client = QueueClient.CreateFromConnectionString(connectionString, queueName);
-            //var toSignKeyVault = QueueClient.CreateFromConnectionString(connectionString, "tosignstepkeyvault");
+            
             var count = 0;
             do
             {
@@ -47,16 +47,18 @@ namespace Signer
                 Console.WriteLine(count);
                 if (count > 0)
                 {
-
+                    var rnd = new Random(DateTime.Now.Millisecond);
                     Parallel.ForEach(files, (currentFile) =>
                     {
                         try
                         {
+                            var value = rnd.Next(1, 6);
+                            var keyVaultNumber = value == 6 ? 1 : value;
+                            var keyVaultNumberString = (keyVaultNumber != 1) ? $"{keyVaultNumber:D2}" : "";
+                            var selectedVault = keyVaultAddress.Replace("prodkeyvaultforpac", $"prodkeyvaultforpac{keyVaultNumberString}");
                             var tuple = currentFile.GetBody<Tuple<CfdiFile,Cfdi>>();
                             var algorithm = JsonWebKeySignatureAlgorithm.RS256;
-                            var signature = Task.Run(() => keyVaultClient.SignAsync(keyVaultAddress, keyName, keyVersion, algorithm, Convert.FromBase64String(tuple.Item2.Sha256))).ConfigureAwait(false).GetAwaiter().GetResult();
-
-                            //toSignKeyVault.Send(new BrokeredMessage(new Tuple<CfdiFile, Cfdi>(file, cfdi)));
+                            var signature = Task.Run(() => keyVaultClient.SignAsync(selectedVault, keyName, keyVersion, algorithm, Convert.FromBase64String(tuple.Item2.Sha256))).ConfigureAwait(false).GetAwaiter().GetResult();
 
                             currentFile.Complete();
                         }

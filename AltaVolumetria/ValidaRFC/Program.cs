@@ -63,73 +63,42 @@ namespace ValidaRFC
                         try
                         {
                             CfdiFile file = currentFile.GetBody<CfdiFile>();
-                            // Retrieve storage account from connection string.
-                            //ServicePointManager.DefaultConnectionLimit = 10000;
-                            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(file.Storage);
-                            CloudBlockBlob blob = new CloudBlockBlob(new Uri(file.FileContent), storageAccount.Credentials);
-
                             var cfdi = new Cfdi();
-
-                            var enableTableStorage = false;
-                            if (enableTableStorage)
+                            if (file.Storage == "inline")
                             {
-                                ////////////////
-
-                                // Retrieve the storage account from the connection string.
-
-
-                                // Create the table client.
-                                CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-
-                                // Create the CloudTable object that represents the "people" table.
-                                CloudTable table = tableClient.GetTableReference("cfdi");
-
-                                // Create a retrieve operation that takes a customer entity.
-                                TableOperation retrieveOperation = TableOperation.Retrieve<CfdiEntity>("none", file.Guid);
-
-                                // Execute the retrieve operation.
-                                TableResult retrievedResult = table.Execute(retrieveOperation);
-
-                                // Print the phone number of the result.
-                                if (retrievedResult.Result != null)
-                                {
-                                    var xml = ((CfdiEntity)retrievedResult.Result).Xml;
-                                    byte[] byteArray = Encoding.UTF8.GetBytes(xml);
-                                    MemoryStream stream = new MemoryStream(byteArray);
-
-
-
-                                   
-                                    //var xml=blob.DownloadText();
-
-                                    //using (var stream = blob.OpenRead())//null,requestOptions))
-                                    //{
-                                    cfdi = new Cfdi(stream);
-                                    //}
-                                }
+                                cfdi = new Cfdi(file.FileContent);
                             }
                             else
                             {
-                                ///////////////
 
-
-
-                                //var requestOptions = new BlobRequestOptions();
-                                //requestOptions.ParallelOperationThreadCount = 1000;
+                                CloudStorageAccount storageAccount = CloudStorageAccount.Parse(file.Storage);
+                                CloudBlockBlob blob = new CloudBlockBlob(new Uri(file.FileContent), storageAccount.Credentials);
                                 
-                                //var xml=blob.DownloadText();
-
-                                using (var stream = blob.OpenRead())//null,requestOptions))
+                                var enableTableStorage = false;
+                                if (enableTableStorage)
                                 {
-                                    cfdi = new Cfdi(stream);
+                                    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+                                    CloudTable table = tableClient.GetTableReference("cfdi");
+                                    TableOperation retrieveOperation = TableOperation.Retrieve<CfdiEntity>("none", file.Guid);
+                                    // Execute the retrieve operation.
+                                    TableResult retrievedResult = table.Execute(retrieveOperation);
+
+                                    if (retrievedResult.Result != null)
+                                    {
+                                        var xml = ((CfdiEntity)retrievedResult.Result).Xml;
+                                        cfdi = new Cfdi(xml);
+                                       
+                                    }
                                 }
+                                else
+                                {
 
-                                ////////Stream stream = new MemoryStream();
-                                ////////blob.DownloadToStream(stream);
-                                ////////cfdi = new Cfdi(stream);
+                                    using (var stream = blob.OpenRead())//null,requestOptions))
+                                    {
+                                        cfdi = new Cfdi(stream);
+                                    }
 
-
-                                
+                                }
                             }
                             if (InternalConfiguration.EnableRedisCache)
                             {

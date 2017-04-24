@@ -31,13 +31,17 @@ namespace Publisher
             {
                 var files = Directory.GetFiles(Environment.CurrentDirectory + "/xml");
                 Console.WriteLine($"Se agregan {files.Count()} archivos a procesar");
-                //List<string> fileTop = new List<string>();
-                //fileTop.Add(files.First());
+                
                 Parallel.ForEach(files, (currentFile) =>
                 //var result=files.AsParallel().Select ((currentFile,index) =>
                     {
                         var guid = Guid.NewGuid().ToString();
-                        var tuple=uploadAndGetStorageUri(guid, currentFile, storages);
+                        Tuple<string,string> tuple;
+
+                        if (InternalConfiguration.EnableInLineXML)
+                            tuple = new Tuple<string, string>(File.ReadAllText(currentFile),"inline");
+                        else
+                            tuple = uploadAndGetStorageUri(guid, currentFile, storages);
                         CfdiFile file = new CfdiFile()
                         {
                             Guid = guid,

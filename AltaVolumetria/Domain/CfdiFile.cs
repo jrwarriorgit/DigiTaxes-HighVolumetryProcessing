@@ -22,6 +22,8 @@ namespace Domain
 
     public class Cfdi
     {
+       
+
         public string UUID { get; set; }
         public string Folio { get; set; }
         public string RfcReceptor { get; set; }
@@ -39,14 +41,18 @@ namespace Domain
             Validaciones = new Dictionary<string, bool>();
         }
 
-        public Cfdi(Stream stream)
+        public Cfdi(Stream stream):base()
         {
-            Validaciones = new Dictionary<string, bool>();
+            
             Load(stream);
-            stream.Position = 0;
-            Sha256 = Convert.ToBase64String(SHA256.Create().ComputeHash(stream));
+            
+        }
 
-
+        public Cfdi(string xml)
+        {
+            byte[] byteArray = Encoding.UTF8.GetBytes(xml);
+            MemoryStream stream = new MemoryStream(byteArray);
+            Load(stream);
         }
 
         private void Load(Stream stream)
@@ -89,7 +95,8 @@ namespace Domain
             }
             // XDocument xdocument = XDocument.Load(stream);
 
-
+            stream.Position = 0;
+            Sha256 = Convert.ToBase64String(SHA256.Create().ComputeHash(stream));
 
 
         }
