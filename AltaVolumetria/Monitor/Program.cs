@@ -39,7 +39,7 @@ namespace Monitor
 
             System.Timers.Timer timer = new System.Timers.Timer();
             timer.Elapsed += new ElapsedEventHandler(EverySecond);
-            timer.Interval = 1000000;
+            timer.Interval = 1000;
             timer.Start();
 
             void EverySecond(object source, ElapsedEventArgs e)
