@@ -124,7 +124,8 @@ namespace Consumer
             {
                 CfdiFile file = item.GetBody<CfdiFile>();
                 NewRow(facturasDataTable, file);
-                newqueue.Add(new BrokeredMessage(file));
+                
+                newqueue.Add(new BrokeredMessage(file) { SessionId=file.Guid });
             }
 
             facturasDataTable.AcceptChanges();

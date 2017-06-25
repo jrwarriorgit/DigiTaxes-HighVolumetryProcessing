@@ -107,7 +107,8 @@ namespace ValidaRFC
                                 cfdi.ValidaRfcReceptor(cache.StringGet(cfdi.RfcReceptor));
                                 cfdi.ValidationTimeSpend = sw.ElapsedMilliseconds;
                             }
-                            toSignKeyVault.Send(new BrokeredMessage(new Tuple<CfdiFile, Cfdi>(file, cfdi)));
+                            toSignKeyVault.Send(new BrokeredMessage(new Tuple<CfdiFile, Cfdi>(file, cfdi))
+                            {SessionId=file.Guid });
                            
                             currentFile.Complete();
                             
