@@ -35,7 +35,7 @@ namespace Monitor
                 , "https://api.powerbi.com/beta/72f988bf-86f1-41af-91ab-2d7cd011db47/datasets/d528a902-20b3-42f4-9ba3-24a7aa4af3b4/rows?key=m56wE2vdJjZ33WdaxvZP%2BAg3sNTCjcGW9mmR3ABs2E5Mwy45Bzi8kOqBbxmIOXX2TL%2Fo7jlxBq%2FXwryVLYEjDw%3D%3D"));
 
 
-
+            
 
             System.Timers.Timer timer = new System.Timers.Timer();
             timer.Elapsed += new ElapsedEventHandler(EverySecond);
