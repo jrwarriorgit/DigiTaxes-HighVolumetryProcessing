@@ -52,8 +52,8 @@ namespace Publisher
                         };
                         try
                         {
-                            var message = new BrokeredMessage(file);
-                            client.Send(message);
+                            
+                            client.Send(new BrokeredMessage(file) { SessionId=file.Guid });
                         }
                         catch(Exception ex)
                         {
@@ -72,12 +72,13 @@ namespace Publisher
             string uri="";
             int hashcode = guid.GetHashCode();
             var rnd = new Random(hashcode).Next(0, storages.Length - 1);
+            var selectedStorage = storages[rnd];
             // Retrieve storage account from connection string.
             try
 
             {
                
-                CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storages[rnd]);
+                CloudStorageAccount storageAccount = CloudStorageAccount.Parse(selectedStorage);
 
                 // Create the blob client.
                 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
@@ -131,7 +132,7 @@ namespace Publisher
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+                Console.WriteLine($"{selectedStorage} - {ex.ToString()}");
             }
             return new Tuple<string, string>(uri,storages[rnd]);
         }

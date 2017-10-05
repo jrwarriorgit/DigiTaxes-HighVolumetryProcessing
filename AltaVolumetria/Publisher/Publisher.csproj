@@ -96,9 +96,8 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="Properties\PublishProfiles\dmPublisher - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\dmPublisherMsdn - Web Deploy.pubxml" />
-    <None Include="Properties\PublishProfiles\prodPublisher - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\prodExcecution - Web Deploy.pubxml" />
     <None Include="Properties\webjob-publish-settings.json" />
   </ItemGroup>
   <ItemGroup>

@@ -55,33 +55,33 @@ namespace Consumer
                         }
                     }
                 }
-                //Parallel.ForEach(files, (currentFile) =>
-                //{
-                //    try
-                //    {
-                //        CfdiFile file = currentFile.GetBody<CfdiFile>();
-                //        using (var cnn = new SqlConnection(sqlconnectionstring))
-                //        {
-                //            cnn.Open();
-                //            using (var cmd = cnn.CreateCommand())
-                //            {
-                //                cmd.CommandText = "INSERT INTO [dbo].[Facturas] ([Guid],[FileName],[FileContent]) VALUES (@Guid,@FileName,@FileContent)";
-                //                cmd.Parameters.AddWithValue("@Guid", file.Guid);
-                //                cmd.Parameters.AddWithValue("@FileName", file.FileName);
-                //                cmd.Parameters.AddWithValue("@FileContent", file.FileContent);
-                //                cmd.ExecuteNonQuery();
+                //////////////Parallel.ForEach(files, (currentFile) =>
+                //////////////{
+                //////////////    try
+                //////////////    {
+                //////////////        CfdiFile file = currentFile.GetBody<CfdiFile>();
+                //////////////        using (var cnn = new SqlConnection(sqlconnectionstring))
+                //////////////        {
+                //////////////            cnn.Open();
+                //////////////            using (var cmd = cnn.CreateCommand())
+                //////////////            {
+                //////////////                cmd.CommandText = "INSERT INTO [dbo].[Facturas] ([Guid],[FileName],[FileContent]) VALUES (@Guid,@FileName,@FileContent)";
+                //////////////                cmd.Parameters.AddWithValue("@Guid", file.Guid);
+                //////////////                cmd.Parameters.AddWithValue("@FileName", file.FileName);
+                //////////////                cmd.Parameters.AddWithValue("@FileContent", file.FileContent);
+                //////////////                cmd.ExecuteNonQuery();
 
-                //            }
-                //        }
+                //////////////            }
+                //////////////        }
 
-                //        currentFile.Complete();
-                //    }
-                //    catch( Exception ex)
-                //    {
-                //        currentFile.Abandon();
-                //    }
-                //}
-                //);
+                //////////////        currentFile.Complete();
+                //////////////    }
+                //////////////    catch (Exception ex)
+                //////////////    {
+                //////////////        currentFile.Abandon();
+                //////////////    }
+                //////////////}
+                /////////////);
                 if (count==0)
                     Thread.Sleep(1000);
             } while (true);
@@ -124,7 +124,8 @@ namespace Consumer
             {
                 CfdiFile file = item.GetBody<CfdiFile>();
                 NewRow(facturasDataTable, file);
-                newqueue.Add(new BrokeredMessage(file));
+                
+                newqueue.Add(new BrokeredMessage(file) { SessionId=file.Guid });
             }
 
             facturasDataTable.AcceptChanges();
