@@ -91,6 +91,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\dmAppExecutorname25812 - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\dmValidaciones - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\prodExcecution - Web Deploy.pubxml" />
     <None Include="Properties\webjob-publish-settings.json" />

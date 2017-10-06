@@ -24,12 +24,14 @@ namespace Signer
             var connectionString = InternalConfiguration.QueueConnectionString;
             var queueName = "tosignstepkeyvault";
 
-            var keyName = "PrincipalHsmKey";
-            var keyVaultAddress = "https://prodkeyvaultforpac.vault.azure.net/";
-            var keyVersion = "f1fdd90eb24f43dc81d3d91449020205";
+            var keyName = "SignKey";
+            var keyVaultAddress = "https://keyvaultname.vault.azure.net/";
+            var keyVersion = InternalConfiguration.KeyVersion;
+            Console.WriteLine(keyVersion);
 
-            var applicationId = "70f7abb5-667f-4d5b-8635-71cd5de50d60";
-            var clientSecret = "4gnYL5di7Kz2/gFaU1F2V73IGHm6fh/d+l6J4ZU8Wfw=";
+
+            var applicationId = InternalConfiguration.ApplicationId;
+            var clientSecret = InternalConfiguration.ApplicationKey;
 
             keyVaultClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(
                    (authority, resource, scope) => GetAccessToken(authority, resource, applicationId, clientSecret)),
@@ -54,16 +56,21 @@ namespace Signer
                         {
                             var value = rnd.Next(1, 6);
                             var keyVaultNumber = value == 6 ? 1 : value;
-                            var keyVaultNumberString = (keyVaultNumber != 1) ? $"{keyVaultNumber:D2}" : "";
-                            var selectedVault = keyVaultAddress.Replace("prodkeyvaultforpac", $"prodkeyvaultforpac{keyVaultNumberString}");
+                            var keyVaultNumberString = (keyVaultNumber != 0) ? $"{keyVaultNumber:D2}" : "";
+                            var selectedVault = keyVaultAddress.Replace("keyvaultname", $"dmKeyPac{InternalConfiguration.Name}{keyVaultNumberString}");
                             var tuple = currentFile.GetBody<Tuple<CfdiFile,Cfdi>>();
                             var algorithm = JsonWebKeySignatureAlgorithm.RS256;
+
                             var signature = Task.Run(() => keyVaultClient.SignAsync(selectedVault, keyName, keyVersion, algorithm, Convert.FromBase64String(tuple.Item2.Sha256))).ConfigureAwait(false).GetAwaiter().GetResult();
 
                             currentFile.Complete();
                         }
                         catch (Exception ex)
                         {
+                            Console.WriteLine(ex);
+                            Console.WriteLine(keyVersion);
+                            Console.WriteLine(InternalConfiguration.Name);
+
                             currentFile.Abandon();
                         }
                     }

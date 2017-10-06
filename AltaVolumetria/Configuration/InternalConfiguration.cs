@@ -1,4 +1,5 @@
-﻿using Microsoft.Azure.KeyVault;
+﻿using Microsoft.Azure;
+using Microsoft.Azure.KeyVault;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 using System;
 using System.Collections.Generic;
@@ -11,11 +12,10 @@ namespace Configuration
 {
     public class InternalConfiguration
     {
-        private static string ApplicationId = "70f7abb5-667f-4d5b-8635-71cd5de50d60";
-        private static string ApplicationKey = "4gnYL5di7Kz2/gFaU1F2V73IGHm6fh/d+l6J4ZU8Wfw=";
-        private static string KeyVaultAddress = "https://prodrgatmskeyvault.vault.azure.net/";
+        public static string ApplicationId = CloudConfigurationManager.GetSetting("ApplicationId");
+        public static string ApplicationKey = CloudConfigurationManager.GetSetting("ApplicationKey");
+        public static string KeyVaultAddress = CloudConfigurationManager.GetSetting("KeyVaultAddress");
 
-        
         private static string[] _storages;
         private static Dictionary<string, string> _secrets = new Dictionary<string, string>();
         private static Dictionary<string, bool> _banderas = new Dictionary<string, bool>();
@@ -34,6 +34,11 @@ namespace Configuration
         public static bool EnableRedisCache{ get { return GetBandera("EnableRedis"); } }
         public static bool EnableInLineXML { get { return GetBandera("EnableInLineXML"); } }
         public static string[] Storages { get { return GetConfigurationArray(_storages, "Storage"); } }
+        public static string Name { get { return GetSecret("Name"); } }
+        public static string Kid { get { return GetSecret("Kid"); } }
+
+        public static string KeyVersion { get { return Kid.Replace($"https://dmkeypac{Name}01.vault.azure.net/keys/SignKey/",""); } }
+
 
         private static string GetSecret( string secretName)
         {
