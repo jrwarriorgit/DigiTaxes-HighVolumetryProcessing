@@ -38,7 +38,7 @@ namespace ValidaRFC
         static void Main(string[] args)
         {
             var connectionString = InternalConfiguration.QueueConnectionString;
-            var queueName = "ToSignQueue";
+            var queueName = "02ConsumerToValidaRFC";
             IDatabase cache = null;
             if (InternalConfiguration.EnableRedisCache)
             {
@@ -46,7 +46,7 @@ namespace ValidaRFC
                  cache = Connection.GetDatabase();
             }
             var client = QueueClient.CreateFromConnectionString(connectionString, queueName);
-            var toSignKeyVault = QueueClient.CreateFromConnectionString(connectionString, "tosignstepkeyvault");
+            var toSignKeyVault = QueueClient.CreateFromConnectionString(connectionString, "03ValidaRFCToSigner");
             var count = 0;
             do
             {

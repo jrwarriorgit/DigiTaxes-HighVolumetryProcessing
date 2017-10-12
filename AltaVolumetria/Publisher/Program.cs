@@ -21,7 +21,7 @@ namespace Publisher
         static void Main(string[] args)
         {
             var connectionString = InternalConfiguration.QueueConnectionString; 
-            var queueName = "ToProcessQueue";
+            var queueName = "01PublisherToConsumer";
             var storages = InternalConfiguration.Storages;
 
             var client = QueueClient.CreateFromConnectionString(connectionString, queueName);

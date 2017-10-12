@@ -22,7 +22,7 @@ namespace Signer
         static void Main(string[] args)
         {
             var connectionString = InternalConfiguration.QueueConnectionString;
-            var queueName = "tosignstepkeyvault";
+            var queueName = "03ValidaRFCToSigner";
 
             var keyName = "SignKey";
             var keyVaultAddress = "https://keyvaultname.vault.azure.net/";

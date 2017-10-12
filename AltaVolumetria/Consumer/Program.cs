@@ -17,11 +17,11 @@ namespace Consumer
         static void Main(string[] args)
         {
             var connectionString = InternalConfiguration.QueueConnectionString;
-            var queueName = "ToProcessQueue";
+            var queueName = "01PublisherToConsumer";
             var sqlconnectionstring = InternalConfiguration.SqlConnectionString;
 
             var client = QueueClient.CreateFromConnectionString(connectionString, queueName);
-            var toSignClient = QueueClient.CreateFromConnectionString(connectionString, "ToSignQueue");
+            var toSignClient = QueueClient.CreateFromConnectionString(connectionString, "02ConsumerToValidaRFC");
             var count = 0;
             do
             {
