@@ -16,6 +16,7 @@ namespace Configuration
         public static string ApplicationKey = CloudConfigurationManager.GetSetting("ApplicationKey");
         public static string KeyVaultAddress = CloudConfigurationManager.GetSetting("KeyVaultAddress");
 
+
         private static string[] _storages;
         private static Dictionary<string, string> _secrets = new Dictionary<string, string>();
         private static Dictionary<string, bool> _banderas = new Dictionary<string, bool>();
@@ -91,6 +92,7 @@ namespace Configuration
                   new HttpClient()); 
         public static string AppSettings(string secretName)
         {
+            Console.WriteLine($"Secret->{secretName}");
             return keyVaultClient.GetSecretAsync(KeyVaultAddress, secretName).Result.Value;
         }
     }
