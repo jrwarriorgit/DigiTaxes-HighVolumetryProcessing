@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cfdi:Comprobante LugarExpedicion="México, D.F." Moneda="MXN" NumCtaPago="1000" certificado="MIIEoDCCA4igAwIBAgIUMDAwMDEwMDAwMDAzMDMxOTY0MTIwDQYJKoZIhvcNAQEFBQAwggGKMTgwNgYDVQQDDC9BLkMuIGRlbCBTZXJ2aWNpbyBkZSBBZG1pbmlzdHJhY2nDs24gVHJpYnV0YXJpYTEvMC0GA1UECgwmU2VydmljaW8gZGUgQWRtaW5pc3RyYWNpw7NuIFRyaWJ1dGFyaWExODA2BgNVBAsML0FkbWluaXN0cmFjacOzbiBkZSBTZWd1cmlkYWQgZGUgbGEgSW5mb3JtYWNpw7NuMR8wHQYJKoZIhvcNAQkBFhBhY29kc0BzYXQuZ29iLm14MSYwJAYDVQQJDB1Bdi4gSGlkYWxnbyA3NywgQ29sLiBHdWVycmVybzEOMAwGA1UEEQwFMDYzMDAxCzAJBgNVBAYTAk1YMRkwFwYDVQQIDBBEaXN0cml0byBGZWRlcmFsMRQwEgYDVQQHDAtDdWF1aHTDqW1vYzEVMBMGA1UELRMMU0FUOTcwNzAxTk4zMTUwMwYJKoZIhvcNAQkCDCZSZXNwb25zYWJsZTogQ2xhdWRpYSBDb3ZhcnJ1YmlhcyBPY2hvYTAeFw0xNDAzMDUxNzI2MDBaFw0xODAzMDUxNzI2MDBaMIHsMScwJQYDVQQDEx5VUyBBSVJXQVlTIElOQyBTVUNVUlNBTCBNRVhJQ08xJzAlBgNVBCkTHlVTIEFJUldBWVMgSU5DIFNVQ1VSU0FMIE1FWElDTzEnMCUGA1UEChMeVVMgQUlSV0FZUyBJTkMgU1VDVVJTQUwgTUVYSUNPMSUwIwYDVQQtExxVQUk5NzA3MThDVjQgLyBBSUJPNzIwODI0TU44MR4wHAYDVQQFExUgLyBBSUJPNzIwODI0SEdUVkxTMDYxKDAmBgNVBAsTH1VTIEFJUldBWVMgSU5DLiBTVUNVUlNBTCBNRVhJQ08wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBANpW0Ba/0rmXsD8qQahZkOWYFWo9Zb+bhK4CcAysNOUu4aIvWkpQO5/LYPNss5ZoLfPesrjG/onVF3gdhQidsjioSYoKcZVhiipJOZSlftqpKSmI0sHgJxqWU8n0VnLr/iUPth4B/sbMYaQvSukLXx2V0VoGWKyatoHXtrt1aAYZAgMBAAGjHTAbMAwGA1UdEwEB/wQCMAAwCwYDVR0PBAQDAgbAMA0GCSqGSIb3DQEBBQUAA4IBAQBtI70Rz8G0e5E9/oaLH9MbPFzDIVWvL55AuEeg4NwwszdmJIao0W7EwJnmyNJsy7+PymR1t5jEsgMus2iH+ryRLlR7D9/MQm8oU10BPmnL+cujvHAwnXGz4nyGYt4SAMjFwkb9POZPf1ziKOYX6dqa2DMdGbgUA+TeL0zE5fJ1mx4S12s2Ff8hUo1K08J8WZ1FcDY86df+A3Wtj1u9ZkNJjxjDvPvZa64aMvrKUBi7mpqq2vl2bA8URZJbPehYnRYIhpHQF4Fme/cK5lOAjYMqzsFx5asIySS0t4bkdl46Co3JBcDJ4yuUMuraLctRqcvbcHhM5SFQK4exlNuWF+U+" fecha="2015-07-14T13:31:32" folio="0379317386237" formaDePago="Pago en una sola exhibición" metodoDePago="Tarjeta American Express" noCertificado="00001000000303196412" sello="dQcmsXyUtcU3Nj+R2MSqVfQuAdKg4p5kgEUnTlllfZc8LAHPnt73UPX1MdPR1YLUtPG5mXnRhAD1MPBipjor0UtNNBuA9YBPUo9B4+lvn21dWbKX2iUnDSVBcwV7Qc6PEMsuz5YiN2l+lUxdTGbmF9Jb/G/zGpcIRyL9XsIy/AM=" subTotal="13716.000000" tipoDeComprobante="ingreso" total="14194.000000" version="3.2" xmlns:aerolineas="http://www.sat.gob.mx/aerolineas" xmlns:cfdi="http://www.sat.gob.mx/cfd/3" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv32.xsd http://www.sat.gob.mx/aerolineas http://www.sat.gob.mx/sitio_internet/cfd/aerolineas/aerolineas.xsd">
+    <cfdi:Emisor nombre="US AIRWAYS, INC. SUCURSAL MEXICO" rfc="UAI970718CV4">
+        <cfdi:DomicilioFiscal calle="REFORMA" codigoPostal="06600" colonia="JUAREZ" estado="Distrito Federal" municipio="CUAUHTEMOC" noExterior="300" noInterior="2º PISO" pais="México"/>
+        <cfdi:ExpedidoEn pais="MEXICO, DF"/>
+        <cfdi:RegimenFiscal Regimen="Régimen General de Ley Personas Morales"/>
+    </cfdi:Emisor>
+    <cfdi:Receptor nombre="MICROSOFT MEXICO, S. DE R.L. DE C.V." rfc="MME910620Q85"><cfdi:Domicilio calle="VASCO DE QUIROGA 1700 PISO 7  COL. SANTA FE  CP 01210  DEL. ALVARO OBREGON MEXICO, D.F." pais="Mexico"/></cfdi:Receptor>
+    <cfdi:Conceptos>
+        <cfdi:Concepto cantidad="1.0000" descripcion="Tarifa del boleto comprado el día 09/07/15" importe="11935.000000" noIdentificacion="0379317386237" unidad="No aplica" valorUnitario="11935.000000"/>
+        <cfdi:Concepto cantidad="1.0000" descripcion="US" importe="562.000000" unidad="No aplica" valorUnitario="562.000000"/>
+        <cfdi:Concepto cantidad="1.0000" descripcion="XY" importe="111.000000" unidad="No aplica" valorUnitario="111.000000"/>
+        <cfdi:Concepto cantidad="1.0000" descripcion="AY" importe="178.000000" unidad="No aplica" valorUnitario="178.000000"/>
+        <cfdi:Concepto cantidad="1.0000" descripcion="XD" importe="690.000000" unidad="No aplica" valorUnitario="690.000000"/>
+        <cfdi:Concepto cantidad="1.0000" descripcion="YC" importe="88.000000" unidad="No aplica" valorUnitario="88.000000"/>
+        <cfdi:Concepto cantidad="1.0000" descripcion="XA" importe="80.000000" unidad="No aplica" valorUnitario="80.000000"/>
+        <cfdi:Concepto cantidad="1.0000" descripcion="XF" importe="72.000000" unidad="No aplica" valorUnitario="72.000000"/>
+    </cfdi:Conceptos>
+    <cfdi:Impuestos totalImpuestosTrasladados="478.000000">
+        <cfdi:Traslados>
+            <cfdi:Traslado importe="478.000000" impuesto="IVA" tasa="16.000000"/>
+        </cfdi:Traslados>
+    </cfdi:Impuestos>
+    <cfdi:Complemento>
+        <aerolineas:Aerolineas TUA="690.000000" Version="1.0">
+            <aerolineas:OtrosCargos TotalCargos="1091.000000">
+                <aerolineas:Cargo CodigoCargo="US" Importe="562.000000"/>
+                <aerolineas:Cargo CodigoCargo="XY" Importe="111.000000"/>
+                <aerolineas:Cargo CodigoCargo="AY" Importe="178.000000"/>
+                <aerolineas:Cargo CodigoCargo="YC" Importe="88.000000"/>
+                <aerolineas:Cargo CodigoCargo="XA" Importe="80.000000"/>
+                <aerolineas:Cargo CodigoCargo="XF" Importe="72.000000"/>
+            </aerolineas:OtrosCargos>
+        </aerolineas:Aerolineas>
+    <tfd:TimbreFiscalDigital FechaTimbrado="2015-07-14T13:31:32" UUID="9F000026-21E9-4C5D-92C6-2E9A42A9147E" noCertificadoSAT="00001000000202639096" selloCFD="dQcmsXyUtcU3Nj+R2MSqVfQuAdKg4p5kgEUnTlllfZc8LAHPnt73UPX1MdPR1YLUtPG5mXnRhAD1MPBipjor0UtNNBuA9YBPUo9B4+lvn21dWbKX2iUnDSVBcwV7Qc6PEMsuz5YiN2l+lUxdTGbmF9Jb/G/zGpcIRyL9XsIy/AM=" selloSAT="kciyPti3DpV/rpCpACJQk62OlGzjbajMT5y1Ci36V9Cj9t3DpOmb6apVdCsHlh8fzTTlcHhb1NJokHESsIYMW3VVi4PnT03yNx91BPEhRTyV+Aq6S6m/pIZpVaEb+0Nw+MahVRCnwBcxpBTTfw9Crlgq2Pw3oMxEapPehO1PoBk=" version="1.0" xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital" xsi:schemaLocation="http://www.sat.gob.mx/TimbreFiscalDigital http://www.sat.gob.mx/TimbreFiscalDigital/TimbreFiscalDigital.xsd"/></cfdi:Complemento>
+    
+<cfdi:Addenda>
+        <customized xmlns="http://repository.edicomnet.com/schemas/mx/cfd/addenda" xsi:schemaLocation="http://repository.edicomnet.com/schemas/mx/cfd/addenda http://repository.edicomnet.com/schemas/mx/cfd/addenda/customized.xsd">
+            <AEROLINEAS>
+                <TicketNumber>0379317386237</TicketNumber>
+                <IssueDate>09/07/2015</IssueDate>
+                <AgencyCode>86812353</AgencyCode>
+            </AEROLINEAS>
+        </customized>
+    </cfdi:Addenda></cfdi:Comprobante>

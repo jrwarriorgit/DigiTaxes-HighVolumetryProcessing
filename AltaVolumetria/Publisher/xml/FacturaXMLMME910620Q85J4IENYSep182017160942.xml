@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<cfdi:Comprobante xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv32.xsd" version="3.2" folio="5793534" fecha="2017-09-18T16:08:53" sello="C0hOANK9I7WtpJGlZBasCEQrz/nuGZ+LoouKJBVQOBSW2oEVVPjuxpuJIR5mIXoxYBsX8uLzUslNTMpPdIR6QnF2NrO23dNSQtofrOViNUUWDmMwnsdBJCshQmqkJPgS6ptk0G/wAktgbdhlvH8moj3wumV+YQode3Y6yBE12E2E2P4AIkccFQSS+eYyV4LPqT2mg3thof2/8lqfoJymj0LStbE812ZSbW779TsBiEjzqCaGWOyS5ixFJr1LJhkWuv3WfSckJRFLwnwnVsLfxWFZxj4lWLHraE7xL9xym7YQuKOXmal05ziFy54lF5kes0QwT6/CHHFwzqVXuXSpGw==" formaDePago="Pagos en una sola exhibición" noCertificado="00001000000404775349" certificado="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" condicionesDePago="Contado" subTotal="3894.41" descuento="0.00" motivoDescuento="Descuento" Moneda="MXN" TipoCambio="1.00" total="4395.75" metodoDePago="29" tipoDeComprobante="ingreso" LugarExpedicion="Ciudad de México Venustiano Carranza" xmlns:cfdi="http://www.sat.gob.mx/cfd/3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <cfdi:Emisor rfc="AAE050309FM0" nombre="ABC Aerolíneas S.A. de C.V">
+    <cfdi:DomicilioFiscal calle="Av. Capitán Carlos León" noExterior="S/N" colonia="Zona Federal Aeropuerto Internacional Ciudad de México" referencia="Acceso por Blvd. Puerto Aéreo" municipio="Venustiano Carranza" estado="Ciudad de México" pais="MÉXICO" codigoPostal="15620" />
+    <cfdi:ExpedidoEn calle="Av. Capitán Carlos León" noExterior="S/N" colonia="Zona Federal Aeropuerto Internacional Ciudad de México" municipio="Venustiano Carranza" estado="Ciudad de México" pais="MÉXICO" codigoPostal="15620" />
+    <cfdi:RegimenFiscal Regimen="Régimen General de Ley Personas Morales" />
+  </cfdi:Emisor>
+  <cfdi:Receptor rfc="MME910620Q85" nombre="Microsoft México S. de R.L de C.V.">
+    <cfdi:Domicilio calle="Vasco De Quiroga 3200 Piso 7" colonia="Col. Centro de Ciudad Santa Fe" municipio="ALVARO OBREGON" estado="CDMX" pais="MÉXICO" codigoPostal="01210" />
+  </cfdi:Receptor>
+  <cfdi:Conceptos>
+    <cfdi:Concepto cantidad="1" unidad="NA" noIdentificacion="J4IENY" descripcion="Servicio Aéreo México D.F.(MEX)-Guadalajara(GDL)" valorUnitario="1029.51" importe="1029.51">
+      <cfdi:ComplementoConcepto />
+    </cfdi:Concepto>
+    <cfdi:Concepto cantidad="1" unidad="NA" noIdentificacion="J4IENY" descripcion="Servicio Aéreo Guadalajara(GDL)-México D.F.(MEX)" valorUnitario="2103.90" importe="2103.90">
+      <cfdi:ComplementoConcepto />
+    </cfdi:Concepto>
+    <cfdi:Concepto cantidad="1" unidad="NA" noIdentificacion="J4IENY" descripcion="(SET) Cambios de Asiento" valorUnitario="0.00" importe="0.00">
+      <cfdi:ComplementoConcepto />
+    </cfdi:Concepto>
+    <cfdi:Concepto cantidad="1" unidad="NA" noIdentificacion="J4IENY" descripcion="TUA Tarifa Única de Aeropuerto" valorUnitario="761.00" importe="761.00">
+      <cfdi:ComplementoConcepto />
+    </cfdi:Concepto>
+  </cfdi:Conceptos>
+  <cfdi:Impuestos totalImpuestosTrasladados="501.34">
+    <cfdi:Traslados>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="501.34" />
+    </cfdi:Traslados>
+  </cfdi:Impuestos>
+  <cfdi:Complemento>
+    <tfd:TimbreFiscalDigital version="1.0" UUID="E689F50B-25F8-4144-8DE5-CD283AE76E4E" FechaTimbrado="2017-09-18T16:08:53" selloCFD="C0hOANK9I7WtpJGlZBasCEQrz/nuGZ+LoouKJBVQOBSW2oEVVPjuxpuJIR5mIXoxYBsX8uLzUslNTMpPdIR6QnF2NrO23dNSQtofrOViNUUWDmMwnsdBJCshQmqkJPgS6ptk0G/wAktgbdhlvH8moj3wumV+YQode3Y6yBE12E2E2P4AIkccFQSS+eYyV4LPqT2mg3thof2/8lqfoJymj0LStbE812ZSbW779TsBiEjzqCaGWOyS5ixFJr1LJhkWuv3WfSckJRFLwnwnVsLfxWFZxj4lWLHraE7xL9xym7YQuKOXmal05ziFy54lF5kes0QwT6/CHHFwzqVXuXSpGw==" noCertificadoSAT="00001000000404347791" selloSAT="cPDjs2md9J/PFOsqZk3UF9600AW+jSNYdXl2APAi9t4rK3fpYliSVCIxU78hHOW/FNBI4Lrr5NpJjCJ8C6N1XpgtSM36nHnbw7/qt7+4KVTtMMkFoVNWjV8lFVjv0lIfzo4xMbWmvEKEHptFUtol3TFhJuev9iazK050Pg0HGPgbXAuh/4CoTdSnAEPO3yw47QT0PZwXP4iQhATNKs1lctHVqUDjY1X/YtC2f8qo3arhn4WwnqaE2i0g1kzkVLRfyv+R89bgf3qEAmwbvTnt4WZVc0LKUF/CGu3payCx1tRP6H0i+Hob0mbds+sAYvlPGESgeHbnuGB1oKqLbXNtEA==" xsi:schemaLocation="http://www.sat.gob.mx/TimbreFiscalDigital http://www.sat.gob.mx/TimbreFiscalDigital/TimbreFiscalDigital.xsd" xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital" />
+    <aerolineas:Aerolineas Version="1.0" TUA="761.00" xsi:schemaLocation="http://www.sat.gob.mx/aerolineas http://www.sat.gob.mx/sitio_internet/cfd/aerolineas/aerolineas.xsd" xmlns:aerolineas="http://www.sat.gob.mx/aerolineas">
+      <aerolineas:OtrosCargos TotalCargos="0.00">
+        <aerolineas:Cargo CodigoCargo="0" Importe="0" />
+      </aerolineas:OtrosCargos>
+    </aerolineas:Aerolineas>
+  </cfdi:Complemento>
+</cfdi:Comprobante>

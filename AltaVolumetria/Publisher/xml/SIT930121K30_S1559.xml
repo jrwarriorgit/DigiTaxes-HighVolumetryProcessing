@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<cfdi:Comprobante xmlns:cfdi="http://www.sat.gob.mx/cfd/3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv32.xsd" version="3.2" serie="S" folio="1559" fecha="2017-03-17T17:17:49" sello="BgBW2bQuICoXa9u9a4mSr8ZivMzmIHJOTrXEIcJJITTvoKL0j7eEKTOGv66ZB/0XxoNRG/jcMf++FdGkkjMWahonGco9g+6SrJeyd67yXSCpivY/xyUtOmOt/NK1CEH/aUafXrowEa6KPBIJbIIb4BzHoNPi+t01+8cc4RofW54=" formaDePago="PAGO EN UNA SOLA EXHIBICIÓN" noCertificado="00001000000300553053" certificado="MIIEuDCCA6CgAwIBAgIUMDAwMDEwMDAwMDAzMDA1NTMwNTMwDQYJKoZIhvcNAQEFBQAwggGKMTgwNgYDVQQDDC9BLkMuIGRlbCBTZXJ2aWNpbyBkZSBBZG1pbmlzdHJhY2nDs24gVHJpYnV0YXJpYTEvMC0GA1UECgwmU2VydmljaW8gZGUgQWRtaW5pc3RyYWNpw7NuIFRyaWJ1dGFyaWExODA2BgNVBAsML0FkbWluaXN0cmFjacOzbiBkZSBTZWd1cmlkYWQgZGUgbGEgSW5mb3JtYWNpw7NuMR8wHQYJKoZIhvcNAQkBFhBhY29kc0BzYXQuZ29iLm14MSYwJAYDVQQJDB1Bdi4gSGlkYWxnbyA3NywgQ29sLiBHdWVycmVybzEOMAwGA1UEEQwFMDYzMDAxCzAJBgNVBAYTAk1YMRkwFwYDVQQIDBBEaXN0cml0byBGZWRlcmFsMRQwEgYDVQQHDAtDdWF1aHTDqW1vYzEVMBMGA1UELRMMU0FUOTcwNzAxTk4zMTUwMwYJKoZIhvcNAQkCDCZSZXNwb25zYWJsZTogQ2xhdWRpYSBDb3ZhcnJ1YmlhcyBPY2hvYTAeFw0xMzA3MjUwMzMyNTJaFw0xNzA3MjUwMzMyNTJaMIIBAzE3MDUGA1UEAxMuU0VSVklDSU9TIEUgSU5NVUVCTEVTIFRVUklTVElDT1MgUyBERSBSTCBERSBDVjE3MDUGA1UEKRMuU0VSVklDSU9TIEUgSU5NVUVCTEVTIFRVUklTVElDT1MgUyBERSBSTCBERSBDVjE3MDUGA1UEChMuU0VSVklDSU9TIEUgSU5NVUVCTEVTIFRVUklTVElDT1MgUyBERSBSTCBERSBDVjElMCMGA1UELRMcU0lUOTMwMTIxSzMwIC8gTE9TRzY1MTExMjZCOTEeMBwGA1UEBRMVIC8gTE9TRzY1MTExMkhERlBMTDA5MQ8wDQYDVQQLEwZNQVRSSVowgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBALTNt2vlfpbmizNMS5bJLFgYEZTqdkOMwdGSVqKqoANOf/q8HWvQLu/fM/nIh4w0xerDzjnXKRy1INsrFf35Bzu9ZJ/MdY0QbCpU6vIMr8Sz6watlacXvNVZucWR3OXc1WXdUlx19GPCVQ4yFLloUNnvjkEKBU2JnoW+zHuKhJThAgMBAAGjHTAbMAwGA1UdEwEB/wQCMAAwCwYDVR0PBAQDAgbAMA0GCSqGSIb3DQEBBQUAA4IBAQAq+qxkwYtmxoVPqq71QnY1jotd8ZIkww5brJoBLjsmljK6k/GbkwVgq2Qf9tKh4ISfTVwuW1hUAX9x5e7UW1DRsUIRyVhEmk1eBPPPsfAU7nmq9sqzxOcj/wLReVjOs+KQAbSuZkdTULDwGk9+6MuqGgRrnkyTkLCJLS0cFa3HBlnl5ghSp6/h9x0AwNvanErGLH2zUufZDosZmGnitUVl5F+GFF0BIQHeSMJ3bdalSLC1+J4axUhpv5B0r0yCav2BkNEZEAhP2SUkCTtZ7b+BioKjvwVLXzmoCzDBWpBtUbP5N5zspIuJpUzmyA1hLwJF5P5rupYa/FH7aDfLsvwK" condicionesDePago="UNA SOLA EXHIBICION" subTotal="88.79" descuento="0.00" TipoCambio="1.00" Moneda="MXN" total="103.00" metodoDePago="04" tipoDeComprobante="ingreso" NumCtaPago="1000" LugarExpedicion="AV DE LAS ROSAS No. 2933 COL. RINCONADA DEL BOSQUE, C.P. 44530, GUADALAJARA, JALISCO, MEXICO">
+  <cfdi:Emisor rfc="SIT930121K30" nombre="SERVICIOS E INMUEBLES TURISTICOS, S DE RL DE CV">
+    <cfdi:DomicilioFiscal calle="AV DE LAS ROSAS" noExterior="2933" colonia="RINCONADA DEL BOSQUE" municipio="GUADALAJARA" estado="JALISCO" pais="MEXICO" codigoPostal="44530" />
+    <cfdi:ExpedidoEn calle="AV DE LAS ROSAS" noExterior="2933" colonia="RINCONADA DEL BOSQUE" municipio="GUADALAJARA" estado="JALISCO" pais="MEXICO" codigoPostal="44530" />
+    <cfdi:RegimenFiscal Regimen="REGIMEN GENERAL DE LEY PERSONAS MORALES" />
+  </cfdi:Emisor>
+  <cfdi:Receptor rfc="MME910620Q85" nombre="MICROSOFTMEXICO S DE R L DE C V">
+    <cfdi:Domicilio calle="AVENIDA VASCO DE QUIROGA N. 3200" colonia="SANTA FE" municipio="DELEGACION ALVARO OBREGON" estado="DISTRITO FEDERAL" pais="MEXICO" codigoPostal="01210" />
+  </cfdi:Receptor>
+  <cfdi:Conceptos>
+    <cfdi:Concepto cantidad="1.00" unidad="NO APLICA" noIdentificacion="ALI" descripcion="CONSUMO" valorUnitario="88.79" importe="88.79" />
+  </cfdi:Conceptos>
+  <cfdi:Impuestos totalImpuestosTrasladados="14.21">
+    <cfdi:Traslados>
+      <cfdi:Traslado impuesto="IVA" tasa="16.00" importe="14.21" />
+    </cfdi:Traslados>
+  </cfdi:Impuestos>
+  <cfdi:Complemento>
+    <tfd:TimbreFiscalDigital xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital" xsi:schemaLocation="http://www.sat.gob.mx/TimbreFiscalDigital http://www.sat.gob.mx/TimbreFiscalDigital/TimbreFiscalDigital.xsd" version="1.0" UUID="B7F4D1E0-1B86-46C3-9F31-D9B1AA064A34" FechaTimbrado="2017-03-17T17:22:58" selloCFD="BgBW2bQuICoXa9u9a4mSr8ZivMzmIHJOTrXEIcJJITTvoKL0j7eEKTOGv66ZB/0XxoNRG/jcMf++FdGkkjMWahonGco9g+6SrJeyd67yXSCpivY/xyUtOmOt/NK1CEH/aUafXrowEa6KPBIJbIIb4BzHoNPi+t01+8cc4RofW54=" noCertificadoSAT="00001000000404477432" selloSAT="bEPuImM8HHPyQeLB4Ykrpi9y8xRe0/msbPpSeaenkV6EfUSOvJWxOTb1J22jXJyCDtUOvfpzts09mfqXYNx9H3yYYI3MeQacwwz6TA9vCaczFzw8huc42OC7VLKkYNUe5wQ3P0Y4qEiPXyITIV0pe+FZEp42jdPVY06m9nOwapizDo0ylqmbajLULOjMcr8vWUVL1x9/+37F1w/zo3XZ1i7wxds4QDrrvOnJDsvqwSlUaVtkjrOeA2VySUmmQX3eUqPxvp791Q0g9mNG/dP76Y0iUMytle9Q3IrlSQP8wUi7fsA4l1BvhIQZQAnZ/6X2Bx5Us98wwxyZQ0O1apeF6A==" />
+  </cfdi:Complemento>
+  <cfdi:Addenda>
+    <Totales>
+      <SubTotal>88.79</SubTotal>
+      <IVA>14.21</IVA>
+      <TotalFactura>103.00</TotalFactura>
+      <Propina>0.00</Propina>
+      <TotalPagado>103.00</TotalPagado>
+    </Totales>
+  </cfdi:Addenda>
+</cfdi:Comprobante>

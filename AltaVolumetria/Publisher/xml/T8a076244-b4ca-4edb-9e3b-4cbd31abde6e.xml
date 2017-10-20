@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cfdi:Comprobante xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cfdi="http://www.sat.gob.mx/cfd/3" xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv32.xsd http://www.sat.gob.mx/implocal http://www.sat.gob.mx/sitio_internet/cfd/implocal/implocal.xsd " xmlns:implocal="http://www.sat.gob.mx/implocal" version="3.2" serie="C" folio="31120" fecha="2017-08-11T08:15:00" sello="KGX0fGFYeC4+pNNZvW728lP+Kg7UENeBzUiB5qMkdxUF9EPs3TSnNIIMcmOl+wqI88IoNEgJXr57a0ug49y7tLFnSUIPXl2sO0oivmR9XpFGND02SuaMcE4dgcqK0taG0XTJDBD1wvJopVlTYm4VugFqTJxDDHaUhoEbsl2OC8S7CCvB8OwVT1jp/tdOas/POZJAWFgtPFOhnL/79h/ymjBMxxSD7LoigLENgGevA5A5DvMSXOviGgbZyhRiNxGVbilHsj5KH9YAOleaVyp4iyLtig0jVSjXAXbXB0UgKZz3EdavGyuc+y3pSXuVUeYQFWMzhhtkJlh3ELWLcX9qmA==" formaDePago="Pago en una sola exhibicion" noCertificado="00001000000403467388" certificado="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" subTotal="2166.30" descuento="0.00" TipoCambio="1" Moneda="MXN" total="2560.38" tipoDeComprobante="ingreso" metodoDePago="04" LugarExpedicion="Mexico, Jalisco">
+  <cfdi:Emisor rfc="HEX0710235P0" nombre="HOTEL EXPO S.A. DE C.V.">
+    <cfdi:DomicilioFiscal calle="Av. Santa Fe No. 495 Piso 11" colonia="Cruz Manca" municipio="Delegación Cuajimalpa" estado="Distrito Federal" pais="Mexico" codigoPostal="05349" />
+    <cfdi:ExpedidoEn calle="Avenida De las Rosas 2911" colonia="Rinconada del Bosque" municipio="Guadalajara" estado="Jalisco" pais="Mexico" codigoPostal="44530" />
+    <cfdi:RegimenFiscal Regimen="Regimen General de Personas Morales" />
+  </cfdi:Emisor>
+  <cfdi:Receptor rfc="MME910620Q85" nombre="MICROSOFT MEXICO S DE RL DE CV">
+    <cfdi:Domicilio calle="Av Vasco de Quiroga 3200 piso 7" colonia="Santa Fe" municipio="Alvaro Obregon" estado="CDM" pais="MEXICO" codigoPostal="01210" />
+  </cfdi:Receptor>
+  <cfdi:Conceptos>
+    <cfdi:Concepto cantidad="1.00" unidad="nada" noIdentificacion="109" descripcion="Paquete (Hab. y Alimentos Desayuno (  4)" valorUnitario="1722.33" importe="1722.33" />
+    <cfdi:Concepto cantidad="1.00" unidad="nada" noIdentificacion="2" descripcion="Alimentos y Bebidas / Food and Bev (  2)" valorUnitario="443.97" importe="443.97" />
+  </cfdi:Conceptos>
+  <cfdi:Impuestos totalImpuestosTrasladados="346.60">
+    <cfdi:Traslados>
+      <cfdi:Traslado impuesto="IVA" tasa="16.00" importe="346.60" />
+    </cfdi:Traslados>
+  </cfdi:Impuestos>
+  <cfdi:Complemento>
+    <implocal:ImpuestosLocales version="1.0" TotaldeRetenciones="0" TotaldeTraslados="47.48">
+      <implocal:TrasladosLocales ImpLocTrasladado="ISH" TasadeTraslado="3.00" Importe="47.48" />
+    </implocal:ImpuestosLocales>
+  <tfd:TimbreFiscalDigital version="1.0" UUID="8a076244-b4ca-4edb-9e3b-4cbd31abde6e" FechaTimbrado="2017-08-11T08:14:57" selloCFD="KGX0fGFYeC4+pNNZvW728lP+Kg7UENeBzUiB5qMkdxUF9EPs3TSnNIIMcmOl+wqI88IoNEgJXr57a0ug49y7tLFnSUIPXl2sO0oivmR9XpFGND02SuaMcE4dgcqK0taG0XTJDBD1wvJopVlTYm4VugFqTJxDDHaUhoEbsl2OC8S7CCvB8OwVT1jp/tdOas/POZJAWFgtPFOhnL/79h/ymjBMxxSD7LoigLENgGevA5A5DvMSXOviGgbZyhRiNxGVbilHsj5KH9YAOleaVyp4iyLtig0jVSjXAXbXB0UgKZz3EdavGyuc+y3pSXuVUeYQFWMzhhtkJlh3ELWLcX9qmA==" noCertificadoSAT="00001000000405999912" selloSAT="iDmf7xr3RLAcx+58+664+5HZ+eShrKHHyNPcO4QNyAjYG78eZOYPpW9WOho5xId+pbUTs9OPpdzvY+9v9bhKXljIN7Ma0nryycyWEwMAI3YMB1p0fuQA6K5MDJOHsixFNiEDaij/pevTsShJZl/+5b2OaGNdiauG47816Qju3lpbf5ugF2dRBb8142mP274i/p0qOv1fNNRpHViGM7gK8+KMHPsSjfOMNUPii4XZqDC1v5aEuOxsS3la8OdcP4JQIGYgUnF1Ew7fswNVNlw8A5hSmA0vOPlN938Dslgd1hUFaRjEsovvhht4IrIp41obbQJ1SZuqT0sVohghbRNhfg==" xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital" xsi:schemaLocation="http://www.sat.gob.mx/TimbreFiscalDigital http://www.sat.gob.mx/sitio_internet/TimbreFiscalDigital/TimbreFiscalDigital.xsd" /></cfdi:Complemento>
+  <cfdi:Addenda xmlns:ecfd="http://www.southconsulting.com/schemas/strict" xsi:schemaLocation="http://www.southconsulting.com/schemas/strict http://www.southconsulting.com/schemas/strict/ecfd.xsd">
+    <ecfd:ECFD version="1.0">
+      <ecfd:Documento ID="T33C31120">
+        <ecfd:Encabezado>
+          <ecfd:IdDoc>
+            <ecfd:NroAprob>1</ecfd:NroAprob>
+            <ecfd:AnoAprob>1900</ecfd:AnoAprob>
+            <ecfd:Tipo>33</ecfd:Tipo>
+            <ecfd:Serie>C</ecfd:Serie>
+            <ecfd:Folio>31120</ecfd:Folio>
+            <ecfd:Estado>ORIGINAL</ecfd:Estado>
+            <ecfd:FechaEmis>2017-08-11T08:15:00</ecfd:FechaEmis>
+            <ecfd:FormaPago>Pago en una sola exhibicion</ecfd:FormaPago>
+            <ecfd:MedioPago>04</ecfd:MedioPago>
+            <ecfd:LugarExpedicion>Mexico, Jalisco</ecfd:LugarExpedicion>
+            <ecfd:TermPagoCdg>1</ecfd:TermPagoCdg>
+          </ecfd:IdDoc>
+          <ecfd:ExEmisor>
+            <ecfd:RFCEmisor>HEX0710235P0</ecfd:RFCEmisor>
+            <ecfd:NmbEmisor>HOTEL EXPO S.A. DE C.V.</ecfd:NmbEmisor>
+            <ecfd:CodigoExEmisor>
+              <ecfd:TpoCdgIntEmisor>INT</ecfd:TpoCdgIntEmisor>
+            </ecfd:CodigoExEmisor>
+            <ecfd:DomFiscal>
+              <ecfd:Calle>Av. Santa Fe No. 495 Piso 11</ecfd:Calle>
+              <ecfd:Colonia>Cruz Manca</ecfd:Colonia>
+              <ecfd:Municipio>Delegación Cuajimalpa</ecfd:Municipio>
+              <ecfd:Estado>Distrito Federal</ecfd:Estado>
+              <ecfd:Pais>Mexico</ecfd:Pais>
+              <ecfd:CodigoPostal>05349</ecfd:CodigoPostal>
+            </ecfd:DomFiscal>
+            <ecfd:LugarExped>
+              <ecfd:Calle>Avenida De las Rosas 2911</ecfd:Calle>
+              <ecfd:Colonia>Rinconada del Bosque</ecfd:Colonia>
+              <ecfd:Municipio>Guadalajara</ecfd:Municipio>
+              <ecfd:Estado>Jalisco</ecfd:Estado>
+              <ecfd:Pais>Mexico</ecfd:Pais>
+              <ecfd:CodigoPostal>44530</ecfd:CodigoPostal>
+            </ecfd:LugarExped>
+          </ecfd:ExEmisor>
+          <ecfd:ExReceptor>
+            <ecfd:RFCRecep>MME910620Q85</ecfd:RFCRecep>
+            <ecfd:NmbRecep>MICROSOFT MEXICO S DE RL DE CV</ecfd:NmbRecep>
+            <ecfd:CodigoExReceptor>
+              <ecfd:CdgIntRecep>277586</ecfd:CdgIntRecep>
+            </ecfd:CodigoExReceptor>
+            <ecfd:DomFiscalRcp>
+              <ecfd:Calle>Av Vasco de Quiroga 3200 piso 7</ecfd:Calle>
+              <ecfd:Colonia>Santa Fe</ecfd:Colonia>
+              <ecfd:Municipio>Alvaro Obregon</ecfd:Municipio>
+              <ecfd:Estado>CDM</ecfd:Estado>
+              <ecfd:Pais>MEXICO</ecfd:Pais>
+              <ecfd:CodigoPostal>01210</ecfd:CodigoPostal>
+            </ecfd:DomFiscalRcp>
+            <ecfd:LugarRecep>
+              <ecfd:Calle>Av Vasco de Quiroga 3200 piso 7</ecfd:Calle>
+              <ecfd:Colonia>Santa Fe</ecfd:Colonia>
+              <ecfd:Municipio>Alvaro Obregon</ecfd:Municipio>
+              <ecfd:Estado>CDM</ecfd:Estado>
+              <ecfd:Pais>MEXICO</ecfd:Pais>
+              <ecfd:CodigoPostal>01210</ecfd:CodigoPostal>
+            </ecfd:LugarRecep>
+          </ecfd:ExReceptor>
+          <ecfd:Totales>
+            <ecfd:Moneda>MXN</ecfd:Moneda>
+            <ecfd:FctConv>1</ecfd:FctConv>
+            <ecfd:SubTotal>2166.30</ecfd:SubTotal>
+            <ecfd:MntDcto>0.00</ecfd:MntDcto>
+            <ecfd:PctDcto>0.00</ecfd:PctDcto>
+            <ecfd:MntBase>2166.30</ecfd:MntBase>
+            <ecfd:MntImp>346.60</ecfd:MntImp>
+            <ecfd:VlrPagar>2560.38</ecfd:VlrPagar>
+            <ecfd:VlrPalabras>DOS MIL QUINIENTOS SESENTA PESOS 38/100 M.N.</ecfd:VlrPalabras>
+          </ecfd:Totales>
+          <ecfd:ExImpuestos>
+            <ecfd:TipoImp>IVA</ecfd:TipoImp>
+            <ecfd:TasaImp>16.00</ecfd:TasaImp>
+            <ecfd:MontoImp>346.60</ecfd:MontoImp>
+          </ecfd:ExImpuestos>
+        </ecfd:Encabezado>
+        <ecfd:Detalle>
+          <ecfd:NroLinDet>1</ecfd:NroLinDet>
+          <ecfd:CdgItem>
+            <ecfd:TpoCodigo>EAN</ecfd:TpoCodigo>
+            <ecfd:VlrCodigo>109</ecfd:VlrCodigo>
+          </ecfd:CdgItem>
+          <ecfd:DscLang>ES</ecfd:DscLang>
+          <ecfd:DscItem>Paquete (Hab. y Alimentos Desayuno (  4)</ecfd:DscItem>
+          <ecfd:QtyItem>1</ecfd:QtyItem>
+          <ecfd:PrcBrutoItem>1997.90</ecfd:PrcBrutoItem>
+          <ecfd:PrcNetoItem>1722.33</ecfd:PrcNetoItem>
+          <ecfd:ImpuestosDet>
+            <ecfd:TipoImp>IVA</ecfd:TipoImp>
+            <ecfd:TasaImp>16.00</ecfd:TasaImp>
+            <ecfd:MontoImp>275.57</ecfd:MontoImp>
+          </ecfd:ImpuestosDet>
+          <ecfd:MontoBrutoItem>1997.90</ecfd:MontoBrutoItem>
+          <ecfd:MontoNetoItem>1722.33</ecfd:MontoNetoItem>
+          <ecfd:MontoTotalItem>1997.90</ecfd:MontoTotalItem>
+        </ecfd:Detalle>
+        <ecfd:Detalle>
+          <ecfd:NroLinDet>2</ecfd:NroLinDet>
+          <ecfd:CdgItem>
+            <ecfd:TpoCodigo>EAN</ecfd:TpoCodigo>
+            <ecfd:VlrCodigo>2</ecfd:VlrCodigo>
+          </ecfd:CdgItem>
+          <ecfd:DscLang>ES</ecfd:DscLang>
+          <ecfd:DscItem>Alimentos y Bebidas / Food and Bev (  2)</ecfd:DscItem>
+          <ecfd:QtyItem>1</ecfd:QtyItem>
+          <ecfd:PrcBrutoItem>515.00</ecfd:PrcBrutoItem>
+          <ecfd:PrcNetoItem>443.97</ecfd:PrcNetoItem>
+          <ecfd:ImpuestosDet>
+            <ecfd:TipoImp>IVA</ecfd:TipoImp>
+            <ecfd:TasaImp>16.00</ecfd:TasaImp>
+            <ecfd:MontoImp>71.03</ecfd:MontoImp>
+          </ecfd:ImpuestosDet>
+          <ecfd:MontoBrutoItem>515.00</ecfd:MontoBrutoItem>
+          <ecfd:MontoNetoItem>443.97</ecfd:MontoNetoItem>
+          <ecfd:MontoTotalItem>515.00</ecfd:MontoTotalItem>
+        </ecfd:Detalle>
+        <ecfd:TimeStamp>2017-08-11T08:15:03</ecfd:TimeStamp>
+      </ecfd:Documento>
+      <ecfd:Personalizados>
+        <ecfd:campoString name="pNombreVendedor" />
+        <ecfd:campoString name="EMail">raul.guerrero@microsoft.com</ecfd:campoString>
+        <ecfd:campoString name="Printer">NO</ecfd:campoString>
+        <ecfd:campoString name="SI_ZZZ">DOS MIL QUINIENTOS SESENTA PESOS 38/100 M.N.</ecfd:campoString>
+        <ecfd:campoString name="SI_ZZZ1">DOS MIL SEISCIENTOS ONCE PESOS 88/100 M.N.</ecfd:campoString>
+        <ecfd:campoString name="tipopago1">Manual American Express  (MXN)</ecfd:campoString>
+        <ecfd:campoString name="tipopago2" />
+        <ecfd:campoString name="tipopago3" />
+        <ecfd:campoString name="tipopago4" />
+        <ecfd:campoString name="NombreHuesped">Guerrero Carreon, Jose Raul</ecfd:campoString>
+        <ecfd:campoString name="habitacion">1212</ecfd:campoString>
+        <ecfd:campoString name="checkin">10-08-17</ecfd:campoString>
+        <ecfd:campoString name="checkout">11-08-17</ecfd:campoString>
+        <ecfd:campoString name="pasaporte" />
+        <ecfd:campoString name="tipoimpuesto2" />
+        <ecfd:campoString name="tipodeimp">IVA</ecfd:campoString>
+        <ecfd:campoString name="banderatasacero">0</ecfd:campoString>
+        <ecfd:campoString name="banderaiva16">346.60</ecfd:campoString>
+        <ecfd:campoString name="edx_version">cfdi_opera_20120417</ecfd:campoString>
+        <ecfd:campoString name="Fuente">opera</ecfd:campoString>
+        <ecfd:campoString name="eFactu">3.14</ecfd:campoString>
+        <ecfd:campoString name="lugarexpedicion">Sucursal</ecfd:campoString>
+        <ecfd:campoString name="MedioPago">04</ecfd:campoString>
+        <ecfd:campoString name="RegimenFiscal">Regimen General de Personas Morales</ecfd:campoString>
+        <ecfd:campoString name="CuentaDePago" />
+        <ecfd:campoString name="LugarDeExpedicion">Mexico, Jalisco</ecfd:campoString>
+        <ecfd:campoNumero name="TasaISH">3.00</ecfd:campoNumero>
+        <ecfd:campoNumero name="TasaIVA">16.00</ecfd:campoNumero>
+        <ecfd:campoNumero name="Propinas">51.50</ecfd:campoNumero>
+        <ecfd:campoNumero name="PaidOuts">0.00</ecfd:campoNumero>
+        <ecfd:campoNumero name="Otros">0.00</ecfd:campoNumero>
+        <ecfd:campoNumero name="VlrPagarMasPropinas">2611.88</ecfd:campoNumero>
+        <ecfd:campoNumero name="MontoISH">47.48</ecfd:campoNumero>
+        <ecfd:campoNumero name="MontoIVA">346.60</ecfd:campoNumero>
+        <ecfd:campoNumero name="pago1">2611.88</ecfd:campoNumero>
+        <ecfd:campoNumero name="pago2">0.00</ecfd:campoNumero>
+        <ecfd:campoNumero name="pago3">0.00</ecfd:campoNumero>
+        <ecfd:campoNumero name="pago4">0.00</ecfd:campoNumero>
+        <ecfd:campoNumero name="folioopera">129824</ecfd:campoNumero>
+        <ecfd:CustDetalle>
+          <ecfd:CustDetNroLin>1</ecfd:CustDetNroLin>
+          <ecfd:CustDetNUE_01>1997</ecfd:CustDetNUE_01>
+        </ecfd:CustDetalle>
+        <ecfd:CustDetalle>
+          <ecfd:CustDetNroLin>2</ecfd:CustDetNroLin>
+          <ecfd:CustDetNUE_01>515</ecfd:CustDetNUE_01>
+        </ecfd:CustDetalle>
+      </ecfd:Personalizados>
+    </ecfd:ECFD>
+  </cfdi:Addenda>
+</cfdi:Comprobante>

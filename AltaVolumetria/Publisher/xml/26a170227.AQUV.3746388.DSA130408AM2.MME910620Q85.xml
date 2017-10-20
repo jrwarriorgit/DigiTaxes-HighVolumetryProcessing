@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cfdi:Comprobante xmlns:cfdi="http://www.sat.gob.mx/cfd/3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:terceros="http://www.sat.gob.mx/terceros" xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital" xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv32.xsd http://www.sat.gob.mx/terceros http://www.sat.gob.mx/sitio_internet/cfd/terceros/terceros11.xsd" version="3.2" fecha="2017-02-27T17:35:15" sello="lGg3mVZdldpiJc0ALQY9P/qYUlE7ai9mszcaxXXB6tfwzMzHEtADRqRgvYTbs4wvJ39iKH2ZQdrNMp0xvFQcK8njQloouivLWidD4XJvsbNpKZGUlAaYwnPkSaHwkuupUB3MTyiPmOvwnZCp/eIyjeUezW1PkZqcCmcqr89ToLc=" formaDePago="Pago en una sola exhibición" noCertificado="00001000000300726086" certificado="MIIErjCCA5agAwIBAgIUMDAwMDEwMDAwMDAzMDA3MjYwODYwDQYJKoZIhvcNAQEFBQAwggGKMTgwNgYDVQQDDC9BLkMuIGRlbCBTZXJ2aWNpbyBkZSBBZG1pbmlzdHJhY2nDs24gVHJpYnV0YXJpYTEvMC0GA1UECgwmU2VydmljaW8gZGUgQWRtaW5pc3RyYWNpw7NuIFRyaWJ1dGFyaWExODA2BgNVBAsML0FkbWluaXN0cmFjacOzbiBkZSBTZWd1cmlkYWQgZGUgbGEgSW5mb3JtYWNpw7NuMR8wHQYJKoZIhvcNAQkBFhBhY29kc0BzYXQuZ29iLm14MSYwJAYDVQQJDB1Bdi4gSGlkYWxnbyA3NywgQ29sLiBHdWVycmVybzEOMAwGA1UEEQwFMDYzMDAxCzAJBgNVBAYTAk1YMRkwFwYDVQQIDBBEaXN0cml0byBGZWRlcmFsMRQwEgYDVQQHDAtDdWF1aHTDqW1vYzEVMBMGA1UELRMMU0FUOTcwNzAxTk4zMTUwMwYJKoZIhvcNAQkCDCZSZXNwb25zYWJsZTogQ2xhdWRpYSBDb3ZhcnJ1YmlhcyBPY2hvYTAeFw0xMzA4MjMyMzU4NDdaFw0xNzA4MjMyMzU4NDdaMIH6MTEwLwYDVQQDEyhESUdJVEFMIFNPTFVUSU9OUyBBTUVSSUNBUyBTIERFIFJMIERFIENWMTEwLwYDVQQpEyhESUdJVEFMIFNPTFVUSU9OUyBBTUVSSUNBUyBTIERFIFJMIERFIENWMTEwLwYDVQQKEyhESUdJVEFMIFNPTFVUSU9OUyBBTUVSSUNBUyBTIERFIFJMIERFIENWMSUwIwYDVQQtExxEU0ExMzA0MDhBTTIgLyBPT0FMNzYwMzE5MVMxMR4wHAYDVQQFExUgLyBPT1hBNzYwMzE5SERGUlhMMDUxGDAWBgNVBAsTD0luc3VyZ2VudGVzIHN1cjCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAqlxPyZI3AEzSx9UZpGN3Se9JVHUsTSBhdpJWX7nC+v7CrGzOiWt+7aBsze9cCLD8raEKhNJMtR4cTx19MquiOxnE196gzoQycxTq4l/TIBnsHcnfU2Q2pqdo6sJ/XIBJ/ntuX6gdIOq3+pBd9SYL6VPYoA/p6tf9/2iQCEFX2NECAwEAAaMdMBswDAYDVR0TAQH/BAIwADALBgNVHQ8EBAMCBsAwDQYJKoZIhvcNAQEFBQADggEBAMZ8V++7/+ikOjQmzadbxTZGckQQaFmrKL9wxmhZo/RhyT41mWgsK0qlwqctpOaRgVYrz8pCb7euvY8j69AlCEcLpKkFFSkZ1IQQLyPax7LB+wHqDgjakAzqxC4yglWbObviwTNZkrqagQdXgj9yjlGE2gWPlb1KmZkxs8ui9FFKAbgfGfytO5EoEP5gWvZkHg5FBX6BM7vGszOZaMA4ZtgQiwhd1ekjCdrhY9JwoyQHGnYa7rwsa6UycKO6oKSin6JkFcI0jOhU1C1GBQPu4VZeUVOIN8G7CxQWbHl0WMZMYM6Ikye67rV/J4phcDQ1MPqQx2PdZ10XaBYPt/RpDTg=" subTotal="22.84" total="26.5" tipoDeComprobante="ingreso" metodoDePago="04" serie="AQUV" folio="3746388" LugarExpedicion="ÁLVARO OBREGÓN, CIUDAD DE MÉXICO, CIUDAD DE MÉXICO, MÉXICO" NumCtaPago="1000">
+  <cfdi:Emisor rfc="DSA130408AM2" nombre="DIGITAL SOLUTIONS AMERICAS S DE RL DE CV">
+    <cfdi:DomicilioFiscal calle="INSURGENTES SUR" noExterior="1898" noInterior="12 of 01" colonia="Florida" municipio="ÁLVARO OBREGÓN" localidad="CIUDAD DE MÉXICO" estado="CIUDAD DE MÉXICO" pais="MÉXICO" codigoPostal="01020"/>
+    <cfdi:RegimenFiscal Regimen="Régimen General de Ley Personas Morales"/>
+  </cfdi:Emisor>
+  <cfdi:Receptor rfc="MME910620Q85" nombre="MICROSOFT MEXICO S DE RL DE CV">
+    <cfdi:Domicilio calle="VASCO DE QUIROGA" noExterior="3200" noInterior="PISO 7" colonia="CENTRO DE CIUDAD SANTA FE" municipio="ÁLVARO OBREGÓN" localidad="CIUDAD DE MÉXICO" estado="CIUDAD DE MÉXICO" pais="MÉXICO" codigoPostal="01210"/>
+  </cfdi:Receptor>
+  <cfdi:Conceptos>
+    <cfdi:Concepto cantidad="1" unidad="N/A" descripcion="SERVICIO PRIVADO DE TRANSPORTE CON CHOFER.&lt;br&gt;Fecha Viaje: 2017-02-23 20:23:36&lt;br&gt;Vehículo: UberX&lt;br&gt;Distancia: 2.46 KM&lt;br&gt;Tiempo: 00:06&lt;br&gt;Ciudad del Viaje: MONTERREY" valorUnitario="21.55" importe="21.55"/>
+    <cfdi:Concepto cantidad="1" unidad="N/A" descripcion="CUOTA DE SOLICITUD" valorUnitario="1.29" importe="1.29">
+      <cfdi:ComplementoConcepto>
+        <terceros:PorCuentadeTerceros version="1.1" rfc="COMA730827LL2" nombre="ARMANDO CORDERO MARTINEZ">
+          <terceros:Impuestos>
+            <terceros:Retenciones>
+              <terceros:Retencion impuesto="IVA" importe="0.00"/>
+            </terceros:Retenciones>
+            <terceros:Traslados>
+              <terceros:Traslado impuesto="IVA" tasa="16.00" importe="3.65"/>
+            </terceros:Traslados>
+          </terceros:Impuestos>
+        </terceros:PorCuentadeTerceros>
+      </cfdi:ComplementoConcepto>
+    </cfdi:Concepto>
+  </cfdi:Conceptos>
+  <cfdi:Impuestos totalImpuestosTrasladados="3.65">
+    <cfdi:Traslados>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="3.65"/>
+    </cfdi:Traslados>
+  </cfdi:Impuestos>
+<cfdi:Complemento><tfd:TimbreFiscalDigital xsi:schemaLocation="http://www.sat.gob.mx/TimbreFiscalDigital http://www.sat.gob.mx/sitio_internet/TimbreFiscalDigital/TimbreFiscalDigital.xsd" xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital" version="1.0" UUID="060CACA8-B160-4D33-99E1-7C24DD264B1E" FechaTimbrado="2017-02-27T17:35:30" noCertificadoSAT="00001000000203220518" selloCFD="lGg3mVZdldpiJc0ALQY9P/qYUlE7ai9mszcaxXXB6tfwzMzHEtADRqRgvYTbs4wvJ39iKH2ZQdrNMp0xvFQcK8njQloouivLWidD4XJvsbNpKZGUlAaYwnPkSaHwkuupUB3MTyiPmOvwnZCp/eIyjeUezW1PkZqcCmcqr89ToLc=" selloSAT="Ab9i0TFk+TZXztsBUL299ln52gS6XCYTjzXt60oISajvP2lUkwBtKgm4eX8Gs9T3K4wXw0teevf0tj+uRroQr7Fi3i1BwXmxKqT8qktUuqONmuKavGFoCCPVGBxzCjg3CbpMdVGAf9H+gAEnpaxM63Jy7N9Q0yNn4nxaPsebtIM="/></cfdi:Complemento></cfdi:Comprobante>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cfdi:Comprobante xmlns:cfdi="http://www.sat.gob.mx/cfd/3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:terceros="http://www.sat.gob.mx/terceros" xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital" xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv32.xsd http://www.sat.gob.mx/terceros http://www.sat.gob.mx/sitio_internet/cfd/terceros/terceros11.xsd" version="3.2" fecha="2017-09-18T11:20:14" sello="BoXM7Oup0Zw9o93URmk2YA1UNgfIuoSQzk1xPIKZmdBpoi3bR+MYm9AL3ZgRyK10q/2iNRAabCNVFVS3vb3cJPYxA6W0DtsyluWJznr4JBQUn/zzYfzY92IYSlWKxthVhwOVQKmxCY9DMPJOOFAC80SxpTiIIKeL7Vu06eEWNR+V1k/8Mdnm98ry3/ulrsToUtMaoiBHlZdFkYIgX7bNgqpNMDjXG9AwoTnTqzqHKhvtUGzW5k+DpNP4SvmQTZJ9yP89BhxG7xzR+g+vs0Z68TddngnTK1T3qauoq1cZeMN4dGVpCMsgHDRGmzFmb7OFWAy+JBwd6v5rkctnEfw0Ew==" formaDePago="Pago en una sola exhibición" noCertificado="00001000000406935024" certificado="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" subTotal="56.32" total="65.33" tipoDeComprobante="ingreso" metodoDePago="04" serie="ITLQ" folio="0447231" LugarExpedicion="ÁLVARO OBREGÓN, CIUDAD DE MÉXICO, CIUDAD DE MÉXICO, MÉXICO" NumCtaPago="1000">
+  <cfdi:Emisor rfc="DSA130408AM2" nombre="DIGITAL SOLUTIONS AMERICAS S DE RL DE CV">
+    <cfdi:DomicilioFiscal calle="INSURGENTES SUR" noExterior="1898" noInterior="12 OF 01" colonia="FLORIDA" municipio="ÁLVARO OBREGÓN" localidad="CIUDAD DE MÉXICO" estado="CIUDAD DE MÉXICO" pais="MÉXICO" codigoPostal="01020"/>
+    <cfdi:RegimenFiscal Regimen="Régimen General de Ley Personas Morales"/>
+  </cfdi:Emisor>
+  <cfdi:Receptor rfc="MME910620Q85" nombre="MICROSOFT MEXICO S DE RL DE CV">
+    <cfdi:Domicilio calle="VASCO DE QUIROGA" noExterior="3200" noInterior="PISO 7" colonia="CENTRO DE CIUDAD SANTA FE" municipio="ÁLVARO OBREGÓN" localidad="CIUDAD DE MÉXICO" estado="CIUDAD DE MÉXICO" pais="MÉXICO" codigoPostal="01210"/>
+  </cfdi:Receptor>
+  <cfdi:Conceptos>
+    <cfdi:Concepto cantidad="1" unidad="N/A" descripcion="SERVICIO PRIVADO DE TRANSPORTE CON CHOFER.&lt;br&gt;Fecha Viaje: 2017-09-17 11:57:34&lt;br&gt;Vehículo: uberX&lt;br&gt;Distancia: 7.16 KM&lt;br&gt;Tiempo: 00:12&lt;br&gt;Ciudad del Viaje: Ciudad de México" valorUnitario="49.84" importe="49.84"/>
+    <cfdi:Concepto cantidad="1" unidad="N/A" descripcion="CUOTA DE SOLICITUD" valorUnitario="6.48" importe="6.48">
+      <cfdi:ComplementoConcepto>
+        <terceros:PorCuentadeTerceros version="1.1" rfc="PUMO920416710" nombre="OMAR ISAAC PULIDO MURILLO">
+          <terceros:Impuestos>
+            <terceros:Retenciones>
+              <terceros:Retencion impuesto="IVA" importe="0.00"/>
+            </terceros:Retenciones>
+            <terceros:Traslados>
+              <terceros:Traslado impuesto="IVA" tasa="16.00" importe="9.01"/>
+            </terceros:Traslados>
+          </terceros:Impuestos>
+        </terceros:PorCuentadeTerceros>
+      </cfdi:ComplementoConcepto>
+    </cfdi:Concepto>
+  </cfdi:Conceptos>
+  <cfdi:Impuestos totalImpuestosTrasladados="9.01">
+    <cfdi:Traslados>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="9.01"/>
+    </cfdi:Traslados>
+  </cfdi:Impuestos>
+<cfdi:Complemento><tfd:TimbreFiscalDigital xsi:schemaLocation="http://www.sat.gob.mx/TimbreFiscalDigital http://www.sat.gob.mx/sitio_internet/TimbreFiscalDigital/TimbreFiscalDigital.xsd" xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital" version="1.0" UUID="976C16B1-7E04-4F5B-A35A-F5C52C893CA9" FechaTimbrado="2017-09-18T11:21:34" noCertificadoSAT="00001000000405332712" selloCFD="BoXM7Oup0Zw9o93URmk2YA1UNgfIuoSQzk1xPIKZmdBpoi3bR+MYm9AL3ZgRyK10q/2iNRAabCNVFVS3vb3cJPYxA6W0DtsyluWJznr4JBQUn/zzYfzY92IYSlWKxthVhwOVQKmxCY9DMPJOOFAC80SxpTiIIKeL7Vu06eEWNR+V1k/8Mdnm98ry3/ulrsToUtMaoiBHlZdFkYIgX7bNgqpNMDjXG9AwoTnTqzqHKhvtUGzW5k+DpNP4SvmQTZJ9yP89BhxG7xzR+g+vs0Z68TddngnTK1T3qauoq1cZeMN4dGVpCMsgHDRGmzFmb7OFWAy+JBwd6v5rkctnEfw0Ew==" selloSAT="qotmMbYnUWiPuLRFjAugBUSwYP556R297rJJQnoDByCVqewV/xdCRvdr3nZ4NEErJtOBz6N9BC7ho7LujvCVaNe96a6JCQ/sm4sMcewuZhlxN2v8OqzUIsGtFHDk0rrUNcqe8MtDtvJMctY6Db0BZq5Zv05B8A+ycPioNTNlQ1abQJfmUiU+Vr6CjmV4WDi5aMTkXIQMooRvkd5dN/h29BWAurNj6ZA/u202wsiYkgQX+bjg7IsZ/I2r+dbUi57vvxIbiUTBz4LIiaqoPicS4GXUU0oPNGRasgNNRBWXYOH1whOAyEWNiULP9UiCCv4o1QXWxUu1rELp4ljiqoiSQQ=="/></cfdi:Complemento></cfdi:Comprobante>

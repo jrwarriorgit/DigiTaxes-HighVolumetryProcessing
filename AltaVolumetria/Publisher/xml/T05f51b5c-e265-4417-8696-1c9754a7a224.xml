@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cfdi:Comprobante xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv32.xsd http://www.sat.gob.mx/implocal http://www.sat.gob.mx/sitio_internet/cfd/implocal/implocal.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cfdi="http://www.sat.gob.mx/cfd/3" xmlns:implocal="http://www.sat.gob.mx/implocal" version="3.2" serie="RA" folio="12111" fecha="2016-09-29T08:48:50" sello="OSWjS/nIjJheU1PROVSiU/+5fJBZqR/+CGOybsJ7J6E78dUWhlMmTFPZV+yLl2C143DfRcpig9ZEcMhp90Sep55ncYn7KKvKbPQxQpJqp1vLN6OF2eIOEM6NEme2oAkF6xE6jPHhOwfXaxFaN5f6ozIbwQaXu7Z8WcXVcCwlcuI=" formaDePago="Pago en una sola exhibicion" noCertificado="00001000000202287597" certificado="MIIEszCCA5ugAwIBAgIUMDAwMDEwMDAwMDAyMDIyODc1OTcwDQYJKoZIhvcNAQEFBQAwggGVMTgwNgYDVQQDDC9BLkMuIGRlbCBTZXJ2aWNpbyBkZSBBZG1pbmlzdHJhY2nDs24gVHJpYnV0YXJpYTEvMC0GA1UECgwmU2VydmljaW8gZGUgQWRtaW5pc3RyYWNpw7NuIFRyaWJ1dGFyaWExODA2BgNVBAsML0FkbWluaXN0cmFjacOzbiBkZSBTZWd1cmlkYWQgZGUgbGEgSW5mb3JtYWNpw7NuMSEwHwYJKoZIhvcNAQkBFhJhc2lzbmV0QHNhdC5nb2IubXgxJjAkBgNVBAkMHUF2LiBIaWRhbGdvIDc3LCBDb2wuIEd1ZXJyZXJvMQ4wDAYDVQQRDAUwNjMwMDELMAkGA1UEBhMCTVgxGTAXBgNVBAgMEERpc3RyaXRvIEZlZGVyYWwxFDASBgNVBAcMC0N1YXVodMOpbW9jMRUwEwYDVQQtEwxTQVQ5NzA3MDFOTjMxPjA8BgkqhkiG9w0BCQIML1Jlc3BvbnNhYmxlOiBDZWNpbGlhIEd1aWxsZXJtaW5hIEdhcmPDrWEgR3VlcnJhMB4XDTEyMTEwNjIzMDk1MVoXDTE2MTEwNjIzMDk1MVowgfQxMjAwBgNVBAMTKUlOTU9CSUxJQVJJQSBIT1RFTEVSQSBERSBZVUNBVEFOIFNBIERFIENWMTIwMAYDVQQpEylJTk1PQklMSUFSSUEgSE9URUxFUkEgREUgWVVDQVRBTiBTQSBERSBDVjEyMDAGA1UEChMpSU5NT0JJTElBUklBIEhPVEVMRVJBIERFIFlVQ0FUQU4gU0EgREUgQ1YxJTAjBgNVBC0THElIWTc4MDcxMTZBMiAvIFJPR0w0ODAzMDY4TDcxHjAcBgNVBAUTFSAvIFJPR0w0ODAzMDZIREZETlMwMjEPMA0GA1UECxMGVU5JREFEMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDGamnEHNMpSMfrZWCK8HJm8AmRnbe6LknUGCpi8DLGWT9PcACdduB2cD2/5w9j0qBt9mkoOhJkE5EGNIcsVx9/Zyt0sQOtL/lBgPoyiZp/Vm/XtWyohKu4B/su2wouRZ2iDMIQMHaMC//ANIHGYZsxAE5gnqnVH2YuPKwa8bsZawIDAQABox0wGzAMBgNVHRMBAf8EAjAAMAsGA1UdDwQEAwIGwDANBgkqhkiG9w0BAQUFAAOCAQEAYZAzkppKzGiE7cRZyBHsenAt8UtSOu5sA4mGlZG+32Bs8Bg9Nc1HdowDVMmRiF/FCfWZdLDstgVaa88tjmoMjKfIntRdqh6cQk1f33i3ItBu9UqnXf3YBqyLexoTxmq7aZtDcJzNBmmB22sy1k58i5Lq+zKsa5d29ffkFMuPNSafBCI7dQcAll549p74kXubbKFb6L6xYghOJ1/abl2cgaU3ESMvuNFHMG8mPn4+A2Q56nzRZDMHwBJ6Nuz9+b2sv86Zi/eDvQvvE+t83Z5aA0FBqUxOsL/XMjapgze73nvNs1nLRn7qTSwlNJzrCNDTv18pJfAcsa8V52u/yuDexw==" subTotal="1342.81" descuento="0.00" TipoCambio="1" Moneda="MXN" total="1587.20" tipoDeComprobante="ingreso" metodoDePago="04" LugarExpedicion="Mexico, Yucatan" NumCtaPago="1000">
+  <cfdi:Emisor rfc="IHY7807116A2" nombre="Inmobiliaria Hotelera de Yucatan SA de CV">
+    <cfdi:DomicilioFiscal calle="Av. Colon no. 498" colonia="Centro" municipio="Merida" estado="Yucatan" pais="Mexico" codigoPostal="97000" />
+    <cfdi:ExpedidoEn calle="Av. Colon no. 498" colonia="Centro" municipio="Merida" estado="Yucatan" pais="Mexico" codigoPostal="97000" />
+    <cfdi:RegimenFiscal Regimen="Regimen general Persona Moral" />
+  </cfdi:Emisor>
+  <cfdi:Receptor rfc="MME910620Q85" nombre="Microsoft Mexico S de RL de CV">
+    <cfdi:Domicilio calle="Avenida Vasco de Quiroga # 3200 Piso 7" colonia="Centro de Ciudad Santa Fe" municipio="Alvaro Obregon" estado="DF" pais="MEXICO" codigoPostal="01210" />
+  </cfdi:Receptor>
+  <cfdi:Conceptos>
+    <cfdi:Concepto cantidad="1.00" unidad="No Aplica" noIdentificacion="109" descripcion="Renta de Habitacion                (  1)" valorUnitario="984.03" importe="984.03" />
+    <cfdi:Concepto cantidad="1.00" unidad="No Aplica" noIdentificacion="110" descripcion="Alimentos y Bebidas                (  1)" valorUnitario="126.91" importe="126.91" />
+    <cfdi:Concepto cantidad="1.00" unidad="No Aplica" noIdentificacion="1" descripcion="Alimentos y Bebidas                (  3)" valorUnitario="231.87" importe="231.87" />
+  </cfdi:Conceptos>
+  <cfdi:Impuestos totalImpuestosTrasladados="214.85">
+    <cfdi:Traslados>
+      <cfdi:Traslado impuesto="IVA" tasa="16.00" importe="214.85" />
+    </cfdi:Traslados>
+  </cfdi:Impuestos>
+  <cfdi:Complemento>
+    <implocal:ImpuestosLocales version="1.0" TotaldeRetenciones="0" TotaldeTraslados="29.52">
+      <implocal:TrasladosLocales ImpLocTrasladado="ISH" TasadeTraslado="3.00" Importe="29.52" />
+    </implocal:ImpuestosLocales>
+  <tfd:TimbreFiscalDigital version="1.0" UUID="05f51b5c-e265-4417-8696-1c9754a7a224" FechaTimbrado="2016-09-29T08:50:58" selloCFD="OSWjS/nIjJheU1PROVSiU/+5fJBZqR/+CGOybsJ7J6E78dUWhlMmTFPZV+yLl2C143DfRcpig9ZEcMhp90Sep55ncYn7KKvKbPQxQpJqp1vLN6OF2eIOEM6NEme2oAkF6xE6jPHhOwfXaxFaN5f6ozIbwQaXu7Z8WcXVcCwlcuI=" noCertificadoSAT="00001000000300171326" selloSAT="qRG9O7IIUQnlpzFkYgnaNgX3RBZQTe7U6R0Zg4sTCKNf11LYIhAW41n4fTMivlNW/n0Nce3qY2Vh2bA7B+rGaudax1RWXZofUAlU6WNmmX1NTwtQEVcvzNm1+uJsTJSrD0B9I6dtjFbRM8ebscb1m6auOc/qUQQtdArx68rw1S8=" xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital" xsi:schemaLocation="http://www.sat.gob.mx/TimbreFiscalDigital http://www.sat.gob.mx/sitio_internet/TimbreFiscalDigital/TimbreFiscalDigital.xsd" /></cfdi:Complemento>
+  <cfdi:Addenda xmlns:ecfd="http://www.edxsolutions.com/schemas/strict" xsi:schemaLocation="http://www.edxsolutions.com/schemas/strict http://www.edxsolutions.com/schemas/strict/ecfd.xsd">
+    <ecfd:ECFD version="1.0">
+      <ecfd:Documento ID="T33RA12111">
+        <ecfd:Encabezado>
+          <ecfd:IdDoc>
+            <ecfd:NroAprob>979700</ecfd:NroAprob>
+            <ecfd:AnoAprob>2012</ecfd:AnoAprob>
+            <ecfd:Tipo>33</ecfd:Tipo>
+            <ecfd:Serie>RA</ecfd:Serie>
+            <ecfd:Folio>12111</ecfd:Folio>
+            <ecfd:Estado>ORIGINAL</ecfd:Estado>
+            <ecfd:FechaEmis>2016-09-29T08:48:50</ecfd:FechaEmis>
+            <ecfd:FormaPago>Pago en una sola exhibicion</ecfd:FormaPago>
+            <ecfd:MedioPago>04</ecfd:MedioPago>
+            <ecfd:NumCtaPago>1000</ecfd:NumCtaPago>
+            <ecfd:TermPagoCdg>1</ecfd:TermPagoCdg>
+          </ecfd:IdDoc>
+          <ecfd:ExEmisor>
+            <ecfd:RFCEmisor>IHY7807116A2</ecfd:RFCEmisor>
+            <ecfd:NmbEmisor>Inmobiliaria Hotelera de Yucatan SA de CV</ecfd:NmbEmisor>
+            <ecfd:CodigoExEmisor>
+              <ecfd:TpoCdgIntEmisor>INT</ecfd:TpoCdgIntEmisor>
+            </ecfd:CodigoExEmisor>
+            <ecfd:DomFiscal>
+              <ecfd:Calle>Av. Colon no. 498</ecfd:Calle>
+              <ecfd:Colonia>Centro</ecfd:Colonia>
+              <ecfd:Municipio>Merida</ecfd:Municipio>
+              <ecfd:Estado>Yucatan</ecfd:Estado>
+              <ecfd:Pais>Mexico</ecfd:Pais>
+              <ecfd:CodigoPostal>97000</ecfd:CodigoPostal>
+            </ecfd:DomFiscal>
+            <ecfd:LugarExped>
+              <ecfd:Calle>Av. Colon no. 498</ecfd:Calle>
+              <ecfd:Colonia>Centro</ecfd:Colonia>
+              <ecfd:Municipio>Merida</ecfd:Municipio>
+              <ecfd:Estado>Yucatan</ecfd:Estado>
+              <ecfd:Pais>Mexico</ecfd:Pais>
+              <ecfd:CodigoPostal>97000</ecfd:CodigoPostal>
+            </ecfd:LugarExped>
+          </ecfd:ExEmisor>
+          <ecfd:ExReceptor>
+            <ecfd:RFCRecep>MME910620Q85</ecfd:RFCRecep>
+            <ecfd:NmbRecep>Microsoft Mexico S de RL de CV</ecfd:NmbRecep>
+            <ecfd:CodigoExReceptor>
+              <ecfd:CdgIntRecep>4311044</ecfd:CdgIntRecep>
+            </ecfd:CodigoExReceptor>
+            <ecfd:DomFiscalRcp>
+              <ecfd:Calle>Avenida Vasco de Quiroga # 3200 Piso 7</ecfd:Calle>
+              <ecfd:Colonia>Centro de Ciudad Santa Fe</ecfd:Colonia>
+              <ecfd:Municipio>Alvaro Obregon</ecfd:Municipio>
+              <ecfd:Estado>DF</ecfd:Estado>
+              <ecfd:Pais>MEXICO</ecfd:Pais>
+              <ecfd:CodigoPostal>01210</ecfd:CodigoPostal>
+            </ecfd:DomFiscalRcp>
+            <ecfd:LugarRecep>
+              <ecfd:Calle>Avenida Vasco de Quiroga # 3200 Piso 7</ecfd:Calle>
+              <ecfd:Colonia>Centro de Ciudad Santa Fe</ecfd:Colonia>
+              <ecfd:Municipio>Alvaro Obregon</ecfd:Municipio>
+              <ecfd:Estado>DF</ecfd:Estado>
+              <ecfd:Pais>MEXICO</ecfd:Pais>
+              <ecfd:CodigoPostal>01210</ecfd:CodigoPostal>
+            </ecfd:LugarRecep>
+          </ecfd:ExReceptor>
+          <ecfd:Totales>
+            <ecfd:Moneda>MXN</ecfd:Moneda>
+            <ecfd:FctConv>1</ecfd:FctConv>
+            <ecfd:SubTotal>1342.81</ecfd:SubTotal>
+            <ecfd:MntDcto>0.00</ecfd:MntDcto>
+            <ecfd:PctDcto>0.00</ecfd:PctDcto>
+            <ecfd:MntBase>1342.81</ecfd:MntBase>
+            <ecfd:MntImp>214.85</ecfd:MntImp>
+            <ecfd:VlrPagar>1587.20</ecfd:VlrPagar>
+            <ecfd:VlrPalabras>UN MIL QUINIENTOS OCHENTA Y SIETE PESOS 20/100 M.N.</ecfd:VlrPalabras>
+          </ecfd:Totales>
+          <ecfd:ExImpuestos>
+            <ecfd:TipoImp>IVA</ecfd:TipoImp>
+            <ecfd:TasaImp>16.00</ecfd:TasaImp>
+            <ecfd:MontoImp>214.85</ecfd:MontoImp>
+          </ecfd:ExImpuestos>
+        </ecfd:Encabezado>
+        <ecfd:Detalle>
+          <ecfd:NroLinDet>1</ecfd:NroLinDet>
+          <ecfd:CdgItem>
+            <ecfd:TpoCodigo>EAN</ecfd:TpoCodigo>
+            <ecfd:VlrCodigo>109</ecfd:VlrCodigo>
+          </ecfd:CdgItem>
+          <ecfd:DscLang>ES</ecfd:DscLang>
+          <ecfd:DscItem>Renta de Habitacion                (  1)</ecfd:DscItem>
+          <ecfd:QtyItem>1</ecfd:QtyItem>
+          <ecfd:UnmdItem>No Aplica</ecfd:UnmdItem>
+          <ecfd:PrcBrutoItem>1141.47</ecfd:PrcBrutoItem>
+          <ecfd:PrcNetoItem>984.03</ecfd:PrcNetoItem>
+          <ecfd:ImpuestosDet>
+            <ecfd:TipoImp>IVA</ecfd:TipoImp>
+            <ecfd:TasaImp>16.00</ecfd:TasaImp>
+            <ecfd:MontoImp>157.44</ecfd:MontoImp>
+          </ecfd:ImpuestosDet>
+          <ecfd:MontoBrutoItem>1141.47</ecfd:MontoBrutoItem>
+          <ecfd:MontoNetoItem>984.03</ecfd:MontoNetoItem>
+          <ecfd:MontoTotalItem>1141.47</ecfd:MontoTotalItem>
+        </ecfd:Detalle>
+        <ecfd:Detalle>
+          <ecfd:NroLinDet>2</ecfd:NroLinDet>
+          <ecfd:CdgItem>
+            <ecfd:TpoCodigo>EAN</ecfd:TpoCodigo>
+            <ecfd:VlrCodigo>110</ecfd:VlrCodigo>
+          </ecfd:CdgItem>
+          <ecfd:DscLang>ES</ecfd:DscLang>
+          <ecfd:DscItem>Alimentos y Bebidas                (  1)</ecfd:DscItem>
+          <ecfd:QtyItem>1</ecfd:QtyItem>
+          <ecfd:UnmdItem>No Aplica</ecfd:UnmdItem>
+          <ecfd:PrcBrutoItem>147.22</ecfd:PrcBrutoItem>
+          <ecfd:PrcNetoItem>126.91</ecfd:PrcNetoItem>
+          <ecfd:ImpuestosDet>
+            <ecfd:TipoImp>IVA</ecfd:TipoImp>
+            <ecfd:TasaImp>16.00</ecfd:TasaImp>
+            <ecfd:MontoImp>20.31</ecfd:MontoImp>
+          </ecfd:ImpuestosDet>
+          <ecfd:MontoBrutoItem>147.22</ecfd:MontoBrutoItem>
+          <ecfd:MontoNetoItem>126.91</ecfd:MontoNetoItem>
+          <ecfd:MontoTotalItem>147.22</ecfd:MontoTotalItem>
+        </ecfd:Detalle>
+        <ecfd:Detalle>
+          <ecfd:NroLinDet>3</ecfd:NroLinDet>
+          <ecfd:CdgItem>
+            <ecfd:TpoCodigo>EAN</ecfd:TpoCodigo>
+            <ecfd:VlrCodigo>1</ecfd:VlrCodigo>
+          </ecfd:CdgItem>
+          <ecfd:DscLang>ES</ecfd:DscLang>
+          <ecfd:DscItem>Alimentos y Bebidas                (  3)</ecfd:DscItem>
+          <ecfd:QtyItem>1</ecfd:QtyItem>
+          <ecfd:UnmdItem>No Aplica</ecfd:UnmdItem>
+          <ecfd:PrcBrutoItem>268.97</ecfd:PrcBrutoItem>
+          <ecfd:PrcNetoItem>231.87</ecfd:PrcNetoItem>
+          <ecfd:ImpuestosDet>
+            <ecfd:TipoImp>IVA</ecfd:TipoImp>
+            <ecfd:TasaImp>16.00</ecfd:TasaImp>
+            <ecfd:MontoImp>37.10</ecfd:MontoImp>
+          </ecfd:ImpuestosDet>
+          <ecfd:MontoBrutoItem>268.97</ecfd:MontoBrutoItem>
+          <ecfd:MontoNetoItem>231.87</ecfd:MontoNetoItem>
+          <ecfd:MontoTotalItem>268.97</ecfd:MontoTotalItem>
+        </ecfd:Detalle>
+        <ecfd:TimeStamp>2016-09-29T08:48:51</ecfd:TimeStamp>
+      </ecfd:Documento>
+      <ecfd:Personalizados>
+        <ecfd:campoString name="pNombreVendedor" />
+        <ecfd:campoString name="EMail">raul.guerrero@microsoft.com</ecfd:campoString>
+        <ecfd:campoString name="Printer">NO</ecfd:campoString>
+        <ecfd:campoString name="SI_ZZZ">UN MIL QUINIENTOS OCHENTA Y SIETE PESOS 20/100 M.N.</ecfd:campoString>
+        <ecfd:campoString name="SI_ZZZ1">UN MIL SEISCIENTOS TREINTA Y SIETE PESOS 25/100 M.N.</ecfd:campoString>
+        <ecfd:campoString name="tipopago1">American Express  (MXN) XXXXXXXXXXX1000</ecfd:campoString>
+        <ecfd:campoString name="tipopago2" />
+        <ecfd:campoString name="tipopago3" />
+        <ecfd:campoString name="tipopago4" />
+        <ecfd:campoString name="NombreHuesped">Guerrero, Jose Raul</ecfd:campoString>
+        <ecfd:campoString name="habitacion">437</ecfd:campoString>
+        <ecfd:campoString name="checkin">28-09-16</ecfd:campoString>
+        <ecfd:campoString name="checkout">29-09-16</ecfd:campoString>
+        <ecfd:campoString name="pasaporte" />
+        <ecfd:campoString name="tipoimpuesto2" />
+        <ecfd:campoString name="tipodeimp">IVA</ecfd:campoString>
+        <ecfd:campoString name="banderatasacero">0</ecfd:campoString>
+        <ecfd:campoString name="banderaiva16">214.85</ecfd:campoString>
+        <ecfd:campoString name="edx_version">cfdi_opera_20120417</ecfd:campoString>
+        <ecfd:campoString name="Fuente">opera</ecfd:campoString>
+        <ecfd:campoString name="eFactu">3.14</ecfd:campoString>
+        <ecfd:campoString name="lugarexpedicion">Merida</ecfd:campoString>
+        <ecfd:campoString name="MedioPago">04</ecfd:campoString>
+        <ecfd:campoString name="RegimenFiscal">Regimen general Persona Moral</ecfd:campoString>
+        <ecfd:campoString name="CuentaDePago">1000</ecfd:campoString>
+        <ecfd:campoString name="LugarDeExpedicion">Mexico, Yucatan</ecfd:campoString>
+        <ecfd:campoNumero name="TasaISH">3.00</ecfd:campoNumero>
+        <ecfd:campoNumero name="TasaIVA">16.00</ecfd:campoNumero>
+        <ecfd:campoNumero name="Propinas">50.05</ecfd:campoNumero>
+        <ecfd:campoNumero name="PaidOuts">0.00</ecfd:campoNumero>
+        <ecfd:campoNumero name="Otros">0.00</ecfd:campoNumero>
+        <ecfd:campoNumero name="VlrPagarMasPropinas">1637.25</ecfd:campoNumero>
+        <ecfd:campoNumero name="MontoISH">29.52</ecfd:campoNumero>
+        <ecfd:campoNumero name="MontoIVA">214.85</ecfd:campoNumero>
+        <ecfd:campoNumero name="pago1">1637.25</ecfd:campoNumero>
+        <ecfd:campoNumero name="pago2">0.00</ecfd:campoNumero>
+        <ecfd:campoNumero name="pago3">0.00</ecfd:campoNumero>
+        <ecfd:campoNumero name="pago4">0.00</ecfd:campoNumero>
+        <ecfd:campoNumero name="folioopera">128031</ecfd:campoNumero>
+        <ecfd:CustDetalle>
+          <ecfd:CustDetNroLin>1</ecfd:CustDetNroLin>
+          <ecfd:CustDetNUE_01>1141</ecfd:CustDetNUE_01>
+        </ecfd:CustDetalle>
+        <ecfd:CustDetalle>
+          <ecfd:CustDetNroLin>2</ecfd:CustDetNroLin>
+          <ecfd:CustDetNUE_01>147</ecfd:CustDetNUE_01>
+        </ecfd:CustDetalle>
+        <ecfd:CustDetalle>
+          <ecfd:CustDetNroLin>3</ecfd:CustDetNroLin>
+          <ecfd:CustDetNUE_01>268</ecfd:CustDetNUE_01>
+        </ecfd:CustDetalle>
+      </ecfd:Personalizados>
+    </ecfd:ECFD>
+  </cfdi:Addenda>
+</cfdi:Comprobante>
