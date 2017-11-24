@@ -87,6 +87,7 @@
     <None Include="Properties\PublishProfiles\dmSingleWorker - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\prodMonitor - Web Deploy.pubxml" />
     <None Include="Properties\webjob-publish-settings.json" />
+    <None Include="settings.job" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Configuration\Configuration.csproj">
