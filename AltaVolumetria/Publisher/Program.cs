@@ -20,50 +20,52 @@ namespace Publisher
 
         static void Main(string[] args)
         {
-            var connectionString = InternalConfiguration.QueueConnectionString; 
-            var queueName = "01PublisherToConsumer";
-            var storages = InternalConfiguration.Storages;
+            var destinationQueue = QueueClient.CreateFromConnectionString(InternalConfiguration.QueueConnectionString, "01PublisherToConsumer");
 
-            var client = QueueClient.CreateFromConnectionString(connectionString, queueName);
+            var storages = InternalConfiguration.Storages;
             
             Console.WriteLine("[{0}] Process Started", processId);
             do
             {
-                var files = Directory.GetFiles(Environment.CurrentDirectory + "/xml");
-                Console.WriteLine($"Se agregan {files.Count()} archivos a procesar");
-                
-                Parallel.ForEach(files, (currentFile) =>
-                //var result=files.AsParallel().Select ((currentFile,index) =>
-                    {
-                        var guid = Guid.NewGuid().ToString();
-                        Tuple<string,string> tuple;
+                try
+                {
+                    var files = Directory.GetFiles(Environment.CurrentDirectory + "/xml");
+                    Console.WriteLine($"Se agregan {files.Count()} archivos a procesar");
 
-                        if (InternalConfiguration.EnableInLineXML)
-                            tuple = new Tuple<string, string>(File.ReadAllText(currentFile),"inline");
-                        else
-                            tuple = uploadAndGetStorageUri(guid, currentFile, storages);
-                        CfdiFile file = new CfdiFile()
+                    Parallel.ForEach(files, (currentFile) =>
                         {
-                            Guid = guid,
-                            FileName = currentFile,
-                            FileContent = tuple.Item1,
-                            FechaCreacion = DateTime.Now,
-                            Storage= tuple.Item2
-                        };
-                        try
-                        {
-                            
-                            client.Send(new BrokeredMessage(file) { SessionId=file.Guid });
-                        }
-                        catch(Exception ex)
-                        {
-                            Console.WriteLine(ex);
-                        }
-                        //return guid;
-                    }
+                            var guid = Guid.NewGuid().ToString();
+                            Tuple<string, string> tuple;
 
-                );
-               //Console.WriteLine( $"-> {result.ToList().Count} procesados");
+                            if (InternalConfiguration.EnableInLineXML)
+                                tuple = new Tuple<string, string>(File.ReadAllText(currentFile), "inline");
+                            else
+                                tuple = uploadAndGetStorageUri(guid, currentFile, storages);
+                            CfdiFile file = new CfdiFile()
+                            {
+                                Guid = guid,
+                                FileName = currentFile,
+                                FileContent = tuple.Item1,
+                                FechaCreacion = DateTime.Now,
+                                Storage = tuple.Item2
+                            };
+                            try
+                            {
+                                destinationQueue.Send(new BrokeredMessage(file) { SessionId = file.Guid });
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine(ex);
+                            }
+                        }
+
+                    );
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
+
             } while (true);
         }
 

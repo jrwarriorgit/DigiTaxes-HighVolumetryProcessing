@@ -21,14 +21,13 @@ namespace Signer
         static KeyVaultClient keyVaultClient;
         static void Main(string[] args)
         {
-            var connectionString = InternalConfiguration.QueueConnectionString;
-            var queueName = "03ValidaRFCToSigner";
+            var sourceQueue = QueueClient.CreateFromConnectionString(InternalConfiguration.QueueConnectionString, "03ValidaRFCToSigner");
+            //var destinationQueue = QueueClient.CreateFromConnectionString(InternalConfiguration.QueueConnectionString, "");
 
             var keyName = "SignKey";
             var keyVaultAddress = "https://keyvaultname.vault.azure.net/";
             var keyVersion = InternalConfiguration.KeyVersion;
             Console.WriteLine(keyVersion);
-
 
             var applicationId = InternalConfiguration.ApplicationId;
             var clientSecret = InternalConfiguration.ApplicationKey;
@@ -37,51 +36,64 @@ namespace Signer
                    (authority, resource, scope) => GetAccessToken(authority, resource, applicationId, clientSecret)),
                    new HttpClient());
 
-            var client = QueueClient.CreateFromConnectionString(connectionString, queueName);
             
             var count = 0;
             do
             {
-                Stopwatch swProcess = Stopwatch.StartNew();
-
-                var files = client.ReceiveBatch(1000);
-                count = files.Count();
-                Console.WriteLine(count);
-                if (count > 0)
+                try
                 {
-                    var rnd = new Random(DateTime.Now.Millisecond);
-                    Parallel.ForEach(files, (currentFile) =>
+                    Stopwatch swProcess = Stopwatch.StartNew();
+
+                    var files = sourceQueue.ReceiveBatch(1000);
+                    count = files.Count();
+                    Console.WriteLine(count);
+                    if (count > 0)
                     {
-                        try
+                        var rnd = new Random(DateTime.Now.Millisecond);
+                        Parallel.ForEach(files, (currentFile) =>
                         {
-                            var value = rnd.Next(1, 6);
-                            var keyVaultNumber = value == 6 ? 1 : value;
-                            var keyVaultNumberString = (keyVaultNumber != 0) ? $"{keyVaultNumber:D2}" : "";
-                            var selectedVault = keyVaultAddress.Replace("keyvaultname", $"dmKeyPac{InternalConfiguration.Name}{keyVaultNumberString}");
-                            var tuple = currentFile.GetBody<Tuple<CfdiFile,Cfdi>>();
-                            var algorithm = JsonWebKeySignatureAlgorithm.RS256;
+                            try
+                            {
+                                string selectedVault = selectKeyVault(keyVaultAddress, rnd);
+                                var tuple = currentFile.GetBody<Tuple<CfdiFile, Cfdi>>();
+                                var algorithm = JsonWebKeySignatureAlgorithm.RS256;
 
-                            var signature = Task.Run(() => keyVaultClient.SignAsync(selectedVault, keyName, keyVersion, algorithm, Convert.FromBase64String(tuple.Item2.Sha256))).ConfigureAwait(false).GetAwaiter().GetResult();
+                                var signature = Task.Run(() => keyVaultClient.SignAsync(selectedVault, keyName, keyVersion, algorithm, Convert.FromBase64String(tuple.Item2.Sha256))).ConfigureAwait(false).GetAwaiter().GetResult();
 
-                            currentFile.Complete();
+                                currentFile.Complete();
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine(ex);
+                                Console.WriteLine(keyVersion);
+                                Console.WriteLine(InternalConfiguration.Name);
+
+                                currentFile.Abandon();
+                            }
                         }
-                        catch (Exception ex)
-                        {
-                            Console.WriteLine(ex);
-                            Console.WriteLine(keyVersion);
-                            Console.WriteLine(InternalConfiguration.Name);
-
-                            currentFile.Abandon();
-                        }
+                        );
                     }
-                    );
+                    if (swProcess.ElapsedMilliseconds > 1000) Console.WriteLine($"-> [{count} / {swProcess.ElapsedMilliseconds / 1000}] = {count / (swProcess.ElapsedMilliseconds / 1000)} x segundo");
                 }
-                if (swProcess.ElapsedMilliseconds > 1000) Console.WriteLine($"-> [{count} / {swProcess.ElapsedMilliseconds / 1000}] = {count / (swProcess.ElapsedMilliseconds / 1000)} x segundo");
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
                 if (count == 0)
                     Thread.Sleep(1000);
             } while (true);
 
         }
+
+        private static string selectKeyVault(string keyVaultAddress, Random rnd)
+        {
+            var value = rnd.Next(1, InternalConfiguration.NumberOfKeyVaults + 1);
+            var keyVaultNumber = value == 6 ? 1 : value;
+            var keyVaultNumberString = (keyVaultNumber != 0) ? $"{keyVaultNumber:D2}" : "";
+            var selectedVault = keyVaultAddress.Replace("keyvaultname", $"dmKeyPac{InternalConfiguration.Name}{keyVaultNumberString}");
+            return selectedVault;
+        }
+
         public static async Task<string> GetAccessToken(string authority, string resource, string clientId, string clientSecret)
         {
             var context = new AuthenticationContext(authority, TokenCache.DefaultShared);

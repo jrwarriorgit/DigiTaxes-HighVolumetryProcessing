@@ -68,11 +68,7 @@ namespace Domain
                         
                         switch (reader.Name)
                         {
-
-                            ////case "cfdi:Comprobante":
-                            ////    Folio = reader["folio"];
-                            ////    break;
-
+                            
                             case "cfdi:Emisor":
                                 RfcEmisor = reader["rfc"];
                                 elementsToFind--;
@@ -93,8 +89,7 @@ namespace Domain
                     }
                 }
             }
-            // XDocument xdocument = XDocument.Load(stream);
-
+           
             stream.Position = 0;
             Sha256 = Convert.ToBase64String(SHA256.Create().ComputeHash(stream));
 

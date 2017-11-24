@@ -16,73 +16,88 @@ namespace Consumer
     {
         static void Main(string[] args)
         {
-            var connectionString = InternalConfiguration.QueueConnectionString;
-            var queueName = "01PublisherToConsumer";
+
+            var sourceQueue = QueueClient.CreateFromConnectionString(InternalConfiguration.QueueConnectionString, "01PublisherToConsumer");
+            var destinationQueue = QueueClient.CreateFromConnectionString(InternalConfiguration.QueueConnectionString, "02ConsumerToValidaRFC");
+
             var sqlconnectionstring = InternalConfiguration.SqlConnectionString;
 
-            var client = QueueClient.CreateFromConnectionString(connectionString, queueName);
-            var toSignClient = QueueClient.CreateFromConnectionString(connectionString, "02ConsumerToValidaRFC");
             var count = 0;
             do
             {
-                var files = client.ReceiveBatch(1000);
-                count = files.Count();
-                Console.WriteLine(count);
-                if (count > 0)
+                try
                 {
-                    var returnvalue = MakeTable(files);
-                    var dataTable = returnvalue.Item1;
-                    using (var cnn = new SqlConnection(sqlconnectionstring))
+                    var files = sourceQueue.ReceiveBatch(1000);
+                    count = files.Count();
+                    Console.WriteLine(count);
+                    if (count > 0)
                     {
-                        cnn.Open();
-                        using (SqlBulkCopy bulkCopy = new SqlBulkCopy(cnn))
+                        if (InternalConfiguration.EnableSqlBulkInsert)
                         {
-                            bulkCopy.DestinationTableName =
-                                "dbo.Facturas";
+                            var returnvalue = MakeTable(files);
+                            var dataTable = returnvalue.Item1;
+                            using (var cnn = new SqlConnection(sqlconnectionstring))
+                            {
+                                cnn.Open();
+                                using (SqlBulkCopy bulkCopy = new SqlBulkCopy(cnn))
+                                {
+                                    bulkCopy.DestinationTableName =
+                                        "dbo.Facturas";
 
-                            try
-                            {
-                                // Write from the source to the destination.
-                                bulkCopy.WriteToServer(dataTable);
-                                toSignClient.SendBatch(returnvalue.Item2);
-                                client.CompleteBatch(from f in files
-                                                     select f.LockToken);
-                            }
-                            catch (Exception ex)
-                            {
-                                Console.WriteLine(ex.Message);
+                                    try
+                                    {
+
+                                        bulkCopy.WriteToServer(dataTable);
+                                        destinationQueue.SendBatch(returnvalue.Item2);
+                                        sourceQueue.CompleteBatch(from f in files
+                                                                  select f.LockToken);
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        Console.WriteLine(ex.Message);
+                                    }
+                                }
                             }
                         }
+                        else
+                        {
+                            Parallel.ForEach(files, (currentFile) =>
+                            {
+                                try
+                                {
+                                    CfdiFile file = currentFile.GetBody<CfdiFile>();
+                                    using (var cnn = new SqlConnection(sqlconnectionstring))
+                                    {
+                                        cnn.Open();
+                                        using (var cmd = cnn.CreateCommand())
+                                        {
+                                            cmd.CommandText = "INSERT INTO [dbo].[Facturas] ([Guid],[FileName],[FileContent]) VALUES (@Guid,@FileName,@FileContent)";
+                                            cmd.Parameters.AddWithValue("@Guid", file.Guid);
+                                            cmd.Parameters.AddWithValue("@FileName", file.FileName);
+                                            cmd.Parameters.AddWithValue("@FileContent", file.FileContent);
+                                            cmd.ExecuteNonQuery();
+
+                                        }
+                                    }
+
+                                    currentFile.Complete();
+                                }
+                                catch (Exception ex)
+                                {
+                                    Console.WriteLine(ex);
+                                    currentFile.Abandon();
+                                }
+                            }
+                            );
+                        }
                     }
+                    
                 }
-                //////////////Parallel.ForEach(files, (currentFile) =>
-                //////////////{
-                //////////////    try
-                //////////////    {
-                //////////////        CfdiFile file = currentFile.GetBody<CfdiFile>();
-                //////////////        using (var cnn = new SqlConnection(sqlconnectionstring))
-                //////////////        {
-                //////////////            cnn.Open();
-                //////////////            using (var cmd = cnn.CreateCommand())
-                //////////////            {
-                //////////////                cmd.CommandText = "INSERT INTO [dbo].[Facturas] ([Guid],[FileName],[FileContent]) VALUES (@Guid,@FileName,@FileContent)";
-                //////////////                cmd.Parameters.AddWithValue("@Guid", file.Guid);
-                //////////////                cmd.Parameters.AddWithValue("@FileName", file.FileName);
-                //////////////                cmd.Parameters.AddWithValue("@FileContent", file.FileContent);
-                //////////////                cmd.ExecuteNonQuery();
-
-                //////////////            }
-                //////////////        }
-
-                //////////////        currentFile.Complete();
-                //////////////    }
-                //////////////    catch (Exception ex)
-                //////////////    {
-                //////////////        currentFile.Abandon();
-                //////////////    }
-                //////////////}
-                /////////////);
-                if (count==0)
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
+                if (count == 0)
                     Thread.Sleep(1000);
             } while (true);
         }
@@ -93,25 +108,33 @@ namespace Consumer
             DataTable facturasDataTable = new DataTable("Facturas");
             List<BrokeredMessage> newqueue = new List<BrokeredMessage>();
             // Add three column objects to the table. 
-            DataColumn id = new DataColumn();
-            id.DataType = System.Type.GetType("System.Int64");
-            id.ColumnName = "Id";
-            id.AutoIncrement = true;
+            DataColumn id = new DataColumn()
+            {
+                DataType = System.Type.GetType("System.Int64"),
+                ColumnName = "Id",
+                AutoIncrement = true
+            };
             facturasDataTable.Columns.Add(id);
 
-            DataColumn guid = new DataColumn();
-            guid.DataType = System.Type.GetType("System.String");
-            guid.ColumnName = "Guid";
+            DataColumn guid = new DataColumn()
+            {
+                DataType = System.Type.GetType("System.String"),
+                ColumnName = "Guid"
+            };
             facturasDataTable.Columns.Add(guid);
 
-            DataColumn fileName = new DataColumn();
-            fileName.DataType = System.Type.GetType("System.String");
-            fileName.ColumnName = "FileName";
+            DataColumn fileName = new DataColumn()
+            {
+                DataType = System.Type.GetType("System.String"),
+                ColumnName = "FileName"
+            };
             facturasDataTable.Columns.Add(fileName);
 
-            DataColumn fileContent = new DataColumn();
-            fileContent.DataType = System.Type.GetType("System.String");
-            fileContent.ColumnName = "FileContent";
+            DataColumn fileContent = new DataColumn()
+            {
+                DataType = System.Type.GetType("System.String"),
+                ColumnName = "FileContent"
+            };
             facturasDataTable.Columns.Add(fileContent);
 
             // Create an array for DataColumn objects.
