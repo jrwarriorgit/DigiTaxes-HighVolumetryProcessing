@@ -82,12 +82,15 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\dmAppExecutordemo - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\dmAppMonitorname24391 - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\dmAppMonitorname25812 - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\dmSingleWorker - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\prodMonitor - Web Deploy.pubxml" />
     <None Include="Properties\webjob-publish-settings.json" />
-    <None Include="settings.job" />
+    <None Include="settings.job">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Configuration\Configuration.csproj">
